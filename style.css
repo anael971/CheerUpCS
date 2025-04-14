@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Banner */
+#banner {
+    background: navy url('banner-image.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.banner-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.2em;
+}
+
+/* Carousel */
+#carousel {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+.carousel-slide img {
+    width: 80%;
+    max-width: 600px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Call-to-Action */
+#cta {
+    text-align: center;
+    padding: 20px;
+}
+
+#cta button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cta button:hover {
+    background-color: darkred;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: red;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
