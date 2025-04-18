@@ -38,6 +38,9 @@
 
 
     <section id="image-carousel">
+        <div class="inspiring-quote left">
+        <span>Se battre pour son projet</span>
+    </div>
         <div class="carousel-container">
             <div class="carousel-slides">
                 <div class="slide active">
@@ -51,8 +54,9 @@
                 </div>
             </div>
             
-            <button class="carousel-arrow prev-arrow" aria-label="Image précédente">&#10094;</button>
-            <button class="carousel-arrow next-arrow" aria-label="Image suivante">&#10095;</button>
+            <!-- Modifiez ces lignes: -->
+            <button class="carousel-arrow prev-arrow" aria-label="Image précédente"></button>
+            <button class="carousel-arrow next-arrow" aria-label="Image suivante"></button>
             
             <div class="carousel-dots">
                 <span class="dot active" data-slide="0"></span>
@@ -60,26 +64,75 @@
                 <span class="dot" data-slide="2"></span>
             </div>
         </div>
+        <div class="inspiring-quote right">
+            <span>Se battre contre le cancer</span>
+        </div>
     </section>
 
     <!-- Section principale -->
-    <section id="accueil">
-        <h1>Bienvenue sur CheerUp</h1>
-        <p>Nous vous aidons à améliorer votre bien-être !</p>
-    </section>
-
-    <section id="services">
-        <h2>Nos Services</h2>
-        <ul>
-            <li>Coaching personnalisé</li>
-            <li>Ateliers de groupe</li>
-            <li>Programmes de bien-être</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contactez-nous</h2>
-        <p>Envoyez-nous un message à <a href="mailto:contact@cheerup-cs.fr">contact@cheerup-cs.fr</a></p>
+    <section id="accueil" class="welcome-section">
+        <div class="container">
+            <h1>Cheer Up! Centrale Supélec</h1>
+            <h2>Redonner le sourire aux jeunes atteints de cancer</h2>
+            
+            <div class="mission-block">
+                <div class="mission-text">
+                    <h3>Notre Mission</h3>
+                    <p>Cheer Up! Centrale Supélec est une association dédiée à la lutte contre le cancer. Nous accompagnons les jeunes patients tout au long de leur parcours de soins pour leur apporter des moments de joie et d'évasion.</p>
+                    <p>Nous rendons visite régulièrement à des jeunes enfants atteints du cancer à l'hôpital Gustave Roussy afin de leur apporter un moment de détente et de discussion, loin de leur quotidien. Nous y consacrons plusieurs demi-journées par semaine.</p>
+                    <p>Chaque action que nous menons est guidée par un seul objectif : <strong>offrir espoir, sourire et force à ceux qui en ont le plus besoin</strong>. 💙❤️</p>
+                </div>
+                <div class="mission-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">21</span>
+                        <span class="stat-text">Antennes en France</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-text">Visites annuelles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-text">Projets réalisés</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="actions-overview">
+                <h3>Nos Actions Concrètes</h3>
+                <div class="action-cards">
+                    <div class="action-card">
+                        <div class="card-icon">🏥</div>
+                        <h4>Visites Régulières</h4>
+                        <p>Plusieurs demi-journées par semaine, nous rendons visite aux jeunes patients de l'hôpital Gustave Roussy pour leur offrir des moments d'évasion et de détente.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="card-icon">🎯</div>
+                        <h4>Projets Personnalisés</h4>
+                        <p>Nous proposons des projets individuels et des activités collectives comme des sorties à Disneyland, des soirées bowling ou des baptêmes de l'air.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="card-icon">🎓</div>
+                        <h4>Sensibilisation</h4>
+                        <p>Nous organisons des événements sur le campus de Paris-Saclay pour sensibiliser les étudiants au cancer et collecter des fonds pour nos projets.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="federation-block">
+                <h3>Une Fédération Nationale</h3>
+                <p>Cheer Up! CentraleSupélec est fière de faire partie d'une fédération nationale réunissant 21 antennes implantées sur les campus d'écoles d'ingénieurs et de commerce renommées. En collaborant étroitement, nous partageons nos expériences et renforçons l'impact de nos actions.</p>
+                <p>Ces ressources nous permettent de concrétiser nos projets et de contribuer à la recherche contre la maladie.</p>
+            </div>
+            
+            <div class="cta-block">
+                <h3>Envie de nous rejoindre ou de nous soutenir ?</h3>
+                <div class="cta-buttons">
+                    <a href="#soutenir" class="btn btn-primary">Faire un don</a>
+                    <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Pied de page -->

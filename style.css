@@ -1,11 +1,26 @@
-/* Ajouter ces styles pour l'en-tête */
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
 
+/* Police élégante pour les éléments spéciaux */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    padding: 15px 5%; /* Augmenté de 10px à 15px */
+    padding: 15px 5%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -23,17 +38,17 @@ header {
 }
 
 .logo img {
-    height: 80px; /* Augmenté de 60px à 80px */
+    height: 80px;
     width: auto;
     transition: all 0.3s ease;
 }
 
 .logo-text {
-    font-size: 1.2em; /* Augmenté de 1em à 1.2em */
+    font-size: 1.2em;
     font-weight: 600;
     color: #333;
     white-space: nowrap;
-    margin-left: 5px; /* Ajout d'un petit espacement */
+    margin-left: 5px;
 }
 
 nav {
@@ -82,51 +97,14 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Responsive pour les petits écrans */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
-    }
-    
-    .logo-container {
-        margin-bottom: 15px;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav li {
-        margin: 5px 10px;
-    }
-
-    
-/* Ajustement pour les petits écrans */
-@media (max-width: 768px) {
-    .logo img {
-        height: 70px; /* Un peu plus petit sur mobile, mais toujours plus grand qu'avant */
-    }
-    
-    .logo-text {
-        font-size: 1.1em; /* Un peu plus petit sur mobile */
-    }
-}
-}
-
-
-/* Menu déroulant*/
-
-/* Ajoutez ces styles pour le menu déroulant */
-
-/* Style pour l'élément du menu qui contient le dropdown */
+/* ==========================================================================
+   Dropdown Menu
+   ========================================================================== */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Style du contenu du dropdown (caché par défaut) */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -144,7 +122,6 @@ nav a:hover::after {
     transition: opacity 0.3s, transform 0.3s;
 }
 
-/* Style des liens dans le dropdown */
 .dropdown-content a {
     color: #333;
     padding: 12px 16px;
@@ -155,53 +132,23 @@ nav a:hover::after {
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* Effet de survol pour les liens du dropdown */
 .dropdown-content a:hover {
     background-color: #f8f8f8;
 }
 
-/* Suppression du soulignement pour les liens du dropdown */
 .dropdown-content a::after {
     display: none;
 }
 
-/* Afficher le dropdown au survol */
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Ajustement pour le mode responsive */
-@media (max-width: 768px) {
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        margin-top: 0;
-        background-color: #f8f8f8;
-        width: 100%;
-        margin-bottom: 10px;
-        border-radius: 0;
-    }
-    
-    .dropdown-content a {
-        padding: 8px 15px 8px 25px;
-    }
-    
-    /* Pour s'assurer que le menu déroulant est visible en mode tactile */
-    .dropdown:active .dropdown-content,
-    .dropdown:focus .dropdown-content {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-
-/* Styles pour le carrousel d'images */
-
+/* ==========================================================================
+   Carousel
+   ========================================================================== */
 #image-carousel {
     position: relative;
     width: 100%;
@@ -211,13 +158,14 @@ nav a:hover::after {
 
 .carousel-container {
     position: relative;
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
 }
 
 .carousel-slides {
     position: relative;
-    height: 500px; /* Ajustez la hauteur selon vos besoins */
+    height: 500px;
 }
 
 .slide {
@@ -239,7 +187,60 @@ nav a:hover::after {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Pour couvrir tout l'espace sans déformer l'image */
+    object-fit: cover;
+}
+
+/* Citations sur les images */
+.inspiring-quote {
+    position: absolute;
+    z-index: 5;
+    padding: 0;
+}
+
+.inspiring-quote.left {
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.inspiring-quote.right {
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.inspiring-quote span {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    line-height: 1.4;
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding: 0;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    display: block;
+    letter-spacing: 1px;
+    background: transparent;
+}
+
+/* Animation pour le texte sur l'image */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.inspiring-quote.left span {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.inspiring-quote.right span {
+    animation: fadeInRight 1.5s ease-out;
 }
 
 /* Flèches de navigation */
@@ -247,31 +248,56 @@ nav a:hover::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
     border: none;
     border-radius: 50%;
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
 
 .carousel-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: translateY(-50%) scale(0.95);
 }
 
 .prev-arrow {
-    left: 20px;
+    left: 25px;
 }
 
 .next-arrow {
-    right: 20px;
+    right: 25px;
+}
+
+.prev-arrow::before,
+.next-arrow::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-style: solid;
+    border-width: 3px 0 0 3px;
+    transform: rotate(-45deg);
+    margin-left: 3px;
+}
+
+.next-arrow::before {
+    transform: rotate(135deg);
+    margin-left: -3px;
 }
 
 /* Indicateurs de slides (points) */
@@ -298,23 +324,384 @@ nav a:hover::after {
     background-color: white;
 }
 
-/* Style responsive pour les petits écrans */
+/* ==========================================================================
+   Welcome Section
+   ========================================================================== */
+.welcome-section {
+    padding: 60px 5%;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome-section h1 {
+    font-size: 2.4em;
+    color: #e41c1c;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Mission block */
+.mission-block {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.mission-text {
+    flex: 3;
+    min-width: 300px;
+}
+
+.mission-text h3 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.mission-text h3:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e41c1c;
+}
+
+.mission-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.mission-text strong {
+    color: #333;
+}
+
+/* Statistics */
+.mission-stats {
+    flex: 1;
+    min-width: 250px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.8em;
+    color: #e41c1c;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-text {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Actions overview */
+.actions-overview {
+    margin-bottom: 60px;
+}
+
+.actions-overview h3, .federation-block h3 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+}
+
+.actions-overview h3:after, .federation-block h3:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #e41c1c;
+}
+
+.action-cards {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.action-card {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.action-card h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #e41c1c;
+    text-align: center;
+}
+
+.action-card p {
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Federation block */
+.federation-block {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.federation-block p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA block */
+.cta-block {
+    background: linear-gradient(135deg, #f8f8f8 0%, #e6e6e6 100%);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-block h3 {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #e41c1c;
+    color: white;
+    box-shadow: 0 4px 10px rgba(228, 28, 28, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #c01616;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(228, 28, 28, 0.4);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #333;
+    border: 2px solid #ccc;
+}
+
+.btn-secondary:hover {
+    color: #e41c1c;
+    border-color: #e41c1c;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .inspiring-quote span {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Header responsive */
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    .logo img {
+        height: 70px;
+    }
+    
+    .logo-text {
+        font-size: 1.1em;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav li {
+        margin: 5px 10px;
+    }
+    
+    /* Dropdown responsive */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0;
+        background-color: #f8f8f8;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 0;
+    }
+    
+    .dropdown-content a {
+        padding: 8px 15px 8px 25px;
+    }
+    
+    .dropdown:active .dropdown-content,
+    .dropdown:focus .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Carousel responsive */
+    #image-carousel {
+        padding: 10px 0;
+    }
+    
     .carousel-slides {
-        height: 300px; /* Hauteur réduite pour mobile */
+        height: 300px;
     }
     
     .carousel-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
+        width: 35px;
+        height: 35px;
     }
     
     .prev-arrow {
-        left: 10px;
+        left: 15px;
     }
     
     .next-arrow {
-        right: 10px;
+        right: 15px;
+    }
+    
+    .prev-arrow::before,
+    .next-arrow::before {
+        width: 10px;
+        height: 10px;
+        border-width: 2px 0 0 2px;
+    }
+    
+    /* Quote responsive */
+    .inspiring-quote.left {
+        left: 20px;
+    }
+    
+    .inspiring-quote.right {
+        right: 20px;
+    }
+    
+    .inspiring-quote span {
+        font-size: 1.6rem;
+    }
+    
+    /* Content responsive */
+    .welcome-section {
+        padding: 40px 20px;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2em;
+    }
+    
+    .mission-block, .action-cards {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .action-card {
+        margin-bottom: 20px;
+    }
+    
+    .federation-block,
+    .cta-block {
+        padding: 30px 20px;
     }
 }
+
+
