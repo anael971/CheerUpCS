@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CheerUp - Site officiel">
-    <title>CheerUp - Bienvenue</title>
+    <title>CheerUp Centrale Supélec</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- En-tête du site -->
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="CheerUp Logo">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+            </div>
+            <div class="logo-text"> Antenne Centrale Supélec </div>
         </div>
         <nav>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#services">Nos Services</a></li>
+                <li class="dropdown">
+                    <a href="#Actions" class="dropbtn">Nos Actions</a>
+                    <div class="dropdown-content">
+                        <a href="#visites">Visites</a>
+                        <a href="#projets">Projets</a>
+                        <a href="#sensibilisation">Sensibilisation</a>
+                    </div>
+                </li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#soutenir">Nous Soutenir</a></li>
+                <li><a href="#Fédération">Fédération Cheer Up !</a></li>
             </ul>
         </nav>
     </header>

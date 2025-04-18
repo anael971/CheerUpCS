@@ -1,75 +1,184 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Ajouter ces styles pour l'en-tête */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.logo {
+    margin-right: 15px;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+nav {
+    flex: 1 1 auto;
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    color: #333;
+    display: flex;
+    justify-content: flex-end;
 }
 
-/* Header Banner */
-#banner {
-    background: navy url('banner-image.jpg') no-repeat center center/cover;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+nav li {
+    margin-left: 25px;
 }
 
-.banner-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.banner-content p {
-    font-size: 1.2em;
-}
-
-/* Carousel */
-#carousel {
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 20px;
-}
-
-.carousel-slide img {
-    width: 80%;
-    max-width: 600px;
-    margin: 10px auto;
-    display: block;
-}
-
-/* Call-to-Action */
-#cta {
-    text-align: center;
-    padding: 20px;
-}
-
-#cta button {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#cta button:hover {
-    background-color: darkred;
-}
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-footer a {
-    color: red;
+nav a {
     text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-footer a:hover {
-    text-decoration: underline;
+nav a:hover {
+    color: red;
+}
+
+/* Effet de soulignement au survol */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: red;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav li {
+        margin: 5px 10px;
+    }
+}
+
+
+/* Menu déroulant*/
+
+/* Ajoutez ces styles pour le menu déroulant */
+
+/* Style pour l'élément du menu qui contient le dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style du contenu du dropdown (caché par défaut) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Style des liens dans le dropdown */
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 0.95em;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Effet de survol pour les liens du dropdown */
+.dropdown-content a:hover {
+    background-color: #f8f8f8;
+}
+
+/* Suppression du soulignement pour les liens du dropdown */
+.dropdown-content a::after {
+    display: none;
+}
+
+/* Afficher le dropdown au survol */
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajustement pour le mode responsive */
+@media (max-width: 768px) {
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        margin-top: 0;
+        background-color: #f8f8f8;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 0;
+    }
+    
+    .dropdown-content a {
+        padding: 8px 15px 8px 25px;
+    }
+    
+    /* Pour s'assurer que le menu déroulant est visible en mode tactile */
+    .dropdown:active .dropdown-content,
+    .dropdown:focus .dropdown-content {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
