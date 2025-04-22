@@ -1,63 +1,260 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Notre Équipe - Cheer Up CentraleSupélec"/>
-  <title>Notre Équipe - Cheer Up</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header (copié depuis index.html) -->
-  <header>
+   <!-- En-tête du site -->
+   <header>
     <div class="logo-container">
-      <div class="logo">
-        <img src="img/Logo_CU.png" alt="Cheer Up ! Logo" />
-      </div>
-      <div class="logo-text">Antenne Centrale Supélec</div>
+        <div class="logo">
+            <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+        </div>
+        <div class="logo-text"> Antenne Centrale Supélec </div>
     </div>
     <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="projets.html">Nos Actions</a></li>
-        <li><a href="soutenir.html">Nous Soutenir</a></li>
-        <li><a href="https://cheer-up.fr" target="_blank">Fédération Cheer Up !</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li class="dropdown">
+                <a href="#Actions" class="dropbtn">Nos Actions</a>
+                <div class="dropdown-content">
+                    <a href="#visites">Visites</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="evenements.html">Sur le campus</a>
+                </div>
+            </li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="#soutenir">Nous Soutenir</a></li>
+            <li><a href="#Fédération">Fédération Cheer Up !</a></li>
+            <li><a href="#contact">Contact</a></li>
+            
+            
+        </ul>
     </nav>
-  </header>
+</header>
 
-  <main class="container">
-    <section class="team-page">
-      <h1>Notre Équipe</h1>
-      <p>Découvrez les membres de notre équipe et leur rôle au sein de l'association.</p>
+    <!-- Photo de l'équipe -->
+    <main class="container my-5">
+        <section class="text-center mb-5">
+            <h1 class="text-primary">Notre Équipe</h1>
+            <img src="img/Cheerity.jpeg" alt="L'équipe CheerUp" class="img-fluid rounded">
+        </section>
 
-      <div class="team-members">
-        <div class="team-member">
-          <div class="role">Responsable Communication</div>
-          <img src="img/équipe/Sofia.jpeg" alt="Photo de membre 1" class="member-photo"/>
-          <div class="member-info">
-            <h3>Sofia</h3>
-            <a href="https://www.linkedin.com/in/membre1" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-        <div class="team-member">
-          <div class="role">Chef de Projet</div>
-          <img src="img/équipe/Eryne.jpeg" alt="Photo de membre 2" class="member-photo"/>
-          <div class="member-info">
-            <h3>Eryne</h3>
-            <a href="https://www.linkedin.com/in/membre2" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-        <!-- Ajoutez d'autres membres ici -->
-      </div>
-    </section>
-  </main>
+        <!-- Membres par pôle -->
+        <section>
+            <h2 class="text-primary text-center mb-4">Bureau</h2>
+            <div class="row">
+                <!-- Membre 1 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Présidente</p> <!-- Rôle -->
+                    <img src="img/équipe/Sofia.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Sofia Landagaray</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre1" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre1" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 2 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Trésorier</p> <!-- Rôle -->
+                    <img src="img/équipe/Corentin.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Corentin Hesry</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre2" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre2" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 3 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Secrétaire générale</p> <!-- Rôle -->
+                    <img src="img/équipe/Eryne.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Eryne Aupetit</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre3" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre3" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 4 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Responsable Hôpital</p> <!-- Rôle -->
+                    <img src="img/équipe/Victoria.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Victoria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre4" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre4" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Membres par pôle -->
+        <section>
+            <h2 class="text-primary text-center mb-4">Pôle projet</h2>
+            <div class="row">
+                <!-- Membre 1 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">VP projet</p> <!-- Rôle -->
+                    <img src="img/équipe/Héloïse.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Héloïse Falzar</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre1" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre1" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 2 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo Sport</p> <!-- Rôle -->
+                    <img src="img/équipe/Maïa.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Maïa Bourisson</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre2" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre2" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 3 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo parcs</p> <!-- Rôle -->
+                    <img src="img/équipe/Anaël.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Anaël Anzala</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre3" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre3" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 4 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo culture</p> <!-- Rôle -->
+                    <img src="img/équipe/Gabi.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Gabi Bellaj</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre3" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre3" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 5 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo culture</p> <!-- Rôle -->
+                    <img src="img/équipe/Théodore.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Théodore Van Moere</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre4" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre4" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Membres par pôle -->
 
-  <footer>
-    <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
-  </footer>
+        <!-- Membres par pôle -->
+        <section>
+            <h2 class="text-primary text-center mb-4">Pôle Evenements</h2>
+            <div class="row">
+                <!-- Membre 1 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">VP Events</p> <!-- Rôle -->
+                    <img src="img/équipe/Jeanne.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Jeanne LAcroix Lagranger</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre1" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre1" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 2 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo Sport</p> <!-- Rôle -->
+                    <img src="img/équipe/Pauline.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Pauline/p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre2" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre2" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 3 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo parcs</p> <!-- Rôle -->
+                    <img src="img/équipe/Rafa.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Rafa</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre3" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre3" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+                <!-- Membre 4 -->
+                <div class="col-md-3 text-center">
+                    <p class="fw-bold">Respo culture</p> <!-- Rôle -->
+                    <img src="img/équipe/Léna.jpeg" alt="Membre Événement" class="img-fluid rounded-circle mb-3" width="150">
+                    <p>Benjamin</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/membre3" target="_blank" class="me-2">
+                            <img src="icons/instagram.svg" alt="Instagram" width="24">
+                        </a>
+                        <a href="https://linkedin.com/in/membre3" target="_blank">
+                            <img src="icons/linkedin.svg" alt="LinkedIn" width="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Membres par pôle -->
+    </main>
 
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Association Étudiante Contre le Cancer. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
