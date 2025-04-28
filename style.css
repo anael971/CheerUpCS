@@ -703,5 +703,155 @@ footer {
         padding: 30px 20px;
     }
 }
+/* Galerie d'événements */
+.gallery {
+    text-align: center;
+    padding: 40px;
+}
 
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 20px; /* Réduction de l'espacement entre les rectangles */
+    justify-items: center; /* Centrer les éléments */
+}
 
+.gallery-item {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    width: 450px; /* Largeur des rectangles */
+    height: 350px; /* Hauteur des rectangles */
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Grossissement au survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Accentuation de l'ombre */
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadrer les images pour remplir le rectangle */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom de l'image au survol */
+}
+
+.gallery-item h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent pour le texte */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Section détaillée des événements */
+.event-detail {
+    display: flex;
+    gap: 20px; /* Espacement entre la galerie et la description */
+    margin-bottom: 50px;
+}
+
+.event-gallery {
+    flex: 1; /* La galerie occupe 50% de l'espace */
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    gap: 5px; /* Les photos se touchent presque */
+}
+
+/* Section détaillée des événements */
+.photo-grid img {
+    width: 100%; /* Prend toute la largeur de la colonne */
+    height: 150px; /* Hauteur fixe pour uniformiser les images */
+    object-fit: cover; /* Recadre les images pour remplir l'espace */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05); /* Zoom au survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+.event-description {
+    flex: 1; /* La description occupe 50% de l'espace */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fond clair pour contraster avec la galerie */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-description h2 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.event-description p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+/* Lightbox */
+.lightbox {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Au-dessus des autres éléments */
+    opacity: 0; /* Transition d'opacité */
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.3s ease;
+}
+
+.lightbox .close:hover {
+    color: #ff0000; /* Changement de couleur au survol */
+}
+.lightbox.show {
+    display: flex; /* Affiche la lightbox */
+    opacity: 1; /* Transition d'opacité */
+}
