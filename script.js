@@ -104,16 +104,5 @@ document.addEventListener('DOMContentLoaded', function () {
             lightbox.style.display = 'none';
         }
     });
-        // Ouvrir la lightbox au clic sur une image
-    galleryImages.forEach(image => {
-        image.addEventListener('click', () => {
-            lightbox.classList.add('show'); // Ajoute la classe "show"
-            lightboxImg.src = image.src; // Charger l'image cliquée
-        });
-    });
     
-    // Fermer la lightbox
-    closeBtn.addEventListener('click', () => {
-        lightbox.classList.remove('show'); // Retire la classe "show"
-    });
 });
