@@ -10,6 +10,11 @@
     <script src="js/carousel.js"></script>
     <script src="stats.js"></script>
     <script src="js/main.js"></script>
+    <style>
+        a {
+            text-decoration: none; /* Removes underline from links */
+        }
+    </style>
 </head>
 <body>
     <!-- En-tête du site -->
@@ -22,11 +27,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
                 <li class="dropdown">
                     <a href="#Actions" class="dropbtn">Nos Actions</a>
                     <div class="dropdown-content">
-                        <a href="#visites">Visites</a>
+                        <a href="visites.html">Visites</a>
                         <a href="projets.html">Projets</a>
                         <a href="evenements.html">Sur le campus</a>
                     </div>
@@ -35,8 +40,6 @@
                 <li><a href="#soutenir">Nous Soutenir</a></li>
                 <li><a href="#Fédération">Fédération Cheer Up !</a></li>
                 <li><a href="#contact">Contact</a></li>
-                
-                
             </ul>
         </nav>
     </header>
@@ -109,19 +112,25 @@
                 <h3>Nos Actions Concrètes</h3>
                 <div class="action-cards">
                     <div class="action-card">
-                        <div class="card-icon">🏥</div>
-                        <h4>Visites Régulières</h4>
-                        <p>Plusieurs demi-journées par semaine, nous rendons visite aux jeunes patients de l'hôpital Gustave Roussy pour leur offrir des moments d'évasion et de détente.</p>
+                        <a href="#visites">
+                            <div class="card-icon">🏥</div>
+                            <h4>Visites Régulières</h4>
+                            <p>Plusieurs demi-journées par semaine, nous rendons visite aux jeunes patients de l'hôpital Gustave Roussy pour leur offrir des moments d'évasion et de détente.</p>
+                        </a>
                     </div>
                     <div class="action-card">
-                        <div class="card-icon">🎯</div>
-                        <h4>Projets Personnalisés</h4>
-                        <p>Nous proposons des projets individuels et des activités collectives comme des sorties à Disneyland, des soirées bowling ou des baptêmes de l'air.</p>
+                        <a href="projets.html">
+                            <div class="card-icon">🎯</div>
+                            <h4>Projets Personnalisés</h4>
+                            <p>Nous proposons des projets individuels et des activités collectives comme des sorties à Disneyland, des soirées bowling ou des baptêmes de l'air.</p>
+                        </a>
                     </div>
                     <div class="action-card">
-                        <div class="card-icon">🎓</div>
-                        <h4>Sensibilisation</h4>
-                        <p>Nous organisons des événements sur le campus de Paris-Saclay pour sensibiliser les étudiants au cancer et collecter des fonds pour nos projets.</p>
+                        <a href="evenements.html">
+                            <div class="card-icon">🎓</div>
+                            <h4>Sensibilisation</h4>
+                            <p>Nous organisons des événements sur le campus de Paris-Saclay pour sensibiliser les étudiants au cancer et collecter des fonds pour nos projets.</p>
+                        </a>
                     </div>
                 </div>
             </div>
