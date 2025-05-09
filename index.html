@@ -17,8 +17,8 @@
     </style>
 </head>
 <body>
-    <!-- En-tête du site -->
     <header>
+        <!-- En-tête du site -->
         <div class="logo-container">
             <div class="logo">
                 <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
@@ -37,9 +37,9 @@
                     </div>
                 </li>
                 <li><a href="equipe.html">Notre équipe</a></li>
-                <li><a href="#soutenir">Nous Soutenir</a></li>
-                <li><a href="#Fédération">Fédération Cheer Up !</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -82,17 +82,17 @@
     <!-- Section principale -->
     <section id="accueil" class="welcome-section">
         <div class="container">
-            <h1>Cheer Up! Centrale Supélec</h1>
-            <h2>Redonner le sourire aux jeunes atteints de cancer</h2>
+            <h1 class="animated-slide-left">Cheer Up! Centrale Supélec</h1>
+            <h2 class="animated-slide-left animated-delay-1">Redonner le sourire aux jeunes atteints de cancer</h2>
             
             <div class="mission-block">
-                <div class="mission-text">
+                <div class="mission-text animated-slide-left animated-delay-2">
                     <h3>Notre Mission</h3>
                     <p>Cheer Up! Centrale Supélec est une association dédiée à la lutte contre le cancer. Nous accompagnons les jeunes patients tout au long de leur parcours de soins pour leur apporter des moments de joie et d'évasion.</p>
                     <p>Nous rendons visite régulièrement à des jeunes enfants atteints du cancer à l'hôpital Gustave Roussy afin de leur apporter un moment de détente et de discussion, loin de leur quotidien. Nous y consacrons plusieurs demi-journées par semaine.</p>
                     <p>Chaque action que nous menons est guidée par un seul objectif : <strong>offrir espoir, sourire et force à ceux qui en ont le plus besoin</strong>. 💙❤️</p>
                 </div>
-                <div class="mission-stats">
+                <div class="mission-stats animated-slide-right animated-delay-3">
                     <div class="stat-item">
                         <span class="stat-number" data-target="21">0</span>
                         <span class="stat-text">Antennes en France</span>
@@ -108,7 +108,7 @@
                 </div>
             </div>
             
-            <div class="actions-overview">
+            <div class="actions-overview animated-slide-left animated-delay-2">
                 <h3>Nos Actions Concrètes</h3>
                 <div class="action-cards">
                     <div class="action-card">
@@ -135,25 +135,59 @@
                 </div>
             </div>
             
-            <div class="federation-block">
+            <div class="federation-block animated-slide-right animated-delay-3">
                 <h3>Une Fédération Nationale</h3>
                 <p>Cheer Up! CentraleSupélec est fière de faire partie d'une fédération nationale réunissant 21 antennes implantées sur les campus d'écoles d'ingénieurs et de commerce renommées. En collaborant étroitement, nous partageons nos expériences et renforçons l'impact de nos actions.</p>
-                <p>Ces ressources nous permettent de concrétiser nos projets et de contribuer à la recherche contre la maladie.</p>
-            </div>
-            
-            <div class="cta-block">
-                <h3>Envie de nous rejoindre ou de nous soutenir ?</h3>
-                <div class="cta-buttons">
-                    <a href="#soutenir" class="btn btn-primary">Faire un don</a>
-                    <a href="#contact" class="btn btn-secondary">Nous contacter</a>
-                </div>
+                <a href="https://cheer-up.fr" class="btn-federation">Découvrir la Fédération</a>
             </div>
         </div>
     </section>
 
     <!-- Pied de page -->
     <footer>
-        <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="visites.html">Visites</a>
+                <a href="projets.html">Projets</a>
+                <a href="evenements.html">Sur le campus</a>
+                <a href="equipe.html">Notre équipe</a>
+                <a href="nous-soutenir.html">Nous Soutenir</a>
+                <a href="https://cheer-up.fr">Fédération Cheer Up !</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/CheerUpFrance" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/cheerupfrance/" target="_blank">Instagram</a>
+                <a href="https://twitter.com/CheerUpFrance" target="_blank">Twitter</a>
+            </div>
+            <div class="footer-contact">
+                <p>Email: contact@cheerup.fr</p>
+                <p>Téléphone: 01 23 45 67 89</p>
+            </div>
+        </div>
     </footer>
+    <script>
+    // Déclenche les animations au scroll pour les sections animées
+    function handleScrollAnimations() {
+        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+                el.classList.add('in-view');
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        // Cache les éléments animés au chargement
+        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
+            el.classList.remove('in-view');
+        });
+        handleScrollAnimations();
+    });
+    window.addEventListener('scroll', handleScrollAnimations);
+    </script>
 </body>
 </html>

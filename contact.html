@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact - Cheer Up CentraleSupélec">
+    <title>Contact - Cheer Up CentraleSupélec</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+        }
+        .contact-section h1 {
+            text-align: center;
+            color: #e41c1c;
+            margin-bottom: 20px;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            background: #fafafa;
+            transition: border-color 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #e41c1c;
+            outline: none;
+        }
+        .contact-form button {
+            background: #e41c1c;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .contact-form button:hover {
+            background: #c01616;
+        }
+        .contact-social {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-social a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #333;
+            font-size: 1.6em;
+            transition: color 0.2s;
+            vertical-align: middle;
+        }
+        .contact-social a:hover {
+            color: #e41c1c;
+        }
+        .contact-social img {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
+        }
+        .contact-success {
+            color: #198754;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- En-tête du site -->
+        <div class="logo-container">
+            <div class="logo">
+                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+            </div>
+            <div class="logo-text"> Antenne Centrale Supélec </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#Actions" class="dropbtn">Nos Actions</a>
+                    <div class="dropdown-content">
+                        <a href="visites.html">Visites</a>
+                        <a href="projets.html">Projets</a>
+                        <a href="evenements.html">Sur le campus</a>
+                    </div>
+                </li>
+                <li><a href="equipe.html">Notre équipe</a></li>
+                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h1>Contactez-nous</h1>
+            <form class="contact-form" id="contactForm">
+                <div class="contact-success" id="contactSuccess" style="display:none;">Votre message a bien été envoyé !</div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required placeholder="Votre nom">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Votre email">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Votre message"></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+            <div class="contact-social">
+                <span>Suivez-nous :</span>
+                <a href="https://www.instagram.com/cheerupfrance/" target="_blank" aria-label="Instagram">
+                    <img src="img/instagram.svg" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/company/cheer-up-france/" target="_blank" aria-label="LinkedIn">
+                    <img src="img/linkedin.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="visites.html">Visites</a>
+                <a href="projets.html">Projets</a>
+                <a href="evenements.html">Sur le campus</a>
+                <a href="equipe.html">Notre équipe</a>
+                <a href="nous-soutenir.html">Nous Soutenir</a>
+                <a href="https://cheer-up.fr">Fédération Cheer Up !</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/CheerUpFrance" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/cheerupfrance/" target="_blank">Instagram</a>
+                <a href="https://twitter.com/CheerUpFrance" target="_blank">Twitter</a>
+            </div>
+            <div class="footer-contact">
+                <p>Email: contact@cheerup.fr</p>
+                <p>Téléphone: 01 23 45 67 89</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simulation d'envoi de message (remplacez par un vrai backend si besoin)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('contactSuccess').style.display = 'block';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

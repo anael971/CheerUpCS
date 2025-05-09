@@ -13,6 +13,7 @@
 <body>
 
 <header>
+    <!-- En-tête du site -->
     <div class="logo-container">
         <div class="logo">
             <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
@@ -31,59 +32,59 @@
                 </div>
             </li>
             <li><a href="equipe.html">Notre équipe</a></li>
-            <li><a href="#soutenir">Nous Soutenir</a></li>
-            <li><a href="#Fédération">Fédération Cheer Up !</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+            <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <main class="container my-5">
-    <section class="text-center mb-5">
+    <section class="text-center mb-5 animated-slide-left">
         <h1 class="text-primary">Sur le Campus</h1>
         <p>Découvrez nos évènements sur le campus.</p>
     </section>
     
-    <section class="actions-overview">
+    <section class="actions-overview animated-slide-right">
         <h3>Nos Évènements</h3>
-        <div class="action-cards">
-            <div class="action-card">
-                <img src="img/campus1.jpg" alt="Campus Event 1" class="img-fluid rounded mb-3">
-                <h4>Conférence Étudiante</h4>
+        <div class="action-cards animated-slide-left">
+            <div class="action-card animated-slide-left">
+                <img src="img/Expo photo 1.jpg" alt="Campus Event 1" class="img-fluid rounded mb-3">
+                <h4>Octobre Rose</h4>
                 <p>Une conférence inspirante pour débattre d'idées innovantes.</p>
                 <p class="event-date">15 Novembre 2025</p>
                 <a href="campus-event1.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card">
-                <img src="img/campus2.jpg" alt="Campus Event 2" class="img-fluid rounded mb-3">
-                <h4>Atelier Créatif</h4>
+            <div class="action-card animated-slide-right">
+                <img src="img/Expo photo 5.jpg" alt="Campus Event 2" class="img-fluid rounded mb-3">
+                <h4>Movember</h4>
                 <p>Participez à notre atelier créatif et laissez libre cours à votre imagination.</p>
                 <p class="event-date">22 Novembre 2025</p>
                 <a href="campus-event2.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card">
-                <img src="img/campus3.jpg" alt="Campus Event 3" class="img-fluid rounded mb-3">
-                <h4>Séance de Dédicaces</h4>
-                <p>Rencontrez nos auteurs préférés et faites signer vos livres.</p>
+            <div class="action-card animated-slide-left">
+                <img src="img/Cheerity.jpeg" alt="Campus Event 3" class="img-fluid rounded mb-3">
+                <h4>Cheerity</h4>
+                <p>Ce 14 janvier 2025 nous organisons notre gala de charité annuel « Cheer’ity » lors duquel nous proposons à plusieurs entreprises de rencontrer les étudiants de CentraleSupélec de manière informelle. Le gala s'articule autour d’un dîner convivial ponctué d’interventions d’anciens patients et de professionnels de la santé.</p>
                 <p class="event-date">5 Décembre 2025</p>
                 <a href="campus-event3.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card">
-                <img src="img/Thumbs UP.jpeg" alt="Thumbs Up Event" class="img-fluid rounded mb-3">
-                <h4>Thumbs Up</h4>
-                <p>Un évènement pour partager vos idées et projets.</p>
+            <div class="action-card animated-slide-right">
+                <img src="img/Saint Valentin.jpeg" alt="Thumbs Up Event" class="img-fluid rounded mb-3">
+                <h4>Saint Valentin</h4>
+                <p>Comme chaque année, CheerUp! t’aide à trouver l’amour. A l’occasion de la Saint-Valentin, nous livrons une magnifique renoncule cueillie en France à ton ou ta doux.ce !🌹🥀</p>
                 <p class="event-date">10 Janvier 2026</p>
                 <a href="thumbs-up-event.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card">
-                <img src="img/Cheerity.jpeg" alt="Cheerity Event" class="img-fluid rounded mb-3">
+            <div class="action-card animated-slide-left">
+                <img src="img/JCC belle photo.jpeg" alt="Cheerity Event" class="img-fluid rounded mb-3">
                 <h4>Cheerity</h4>
-                <p>Participez à notre évènement caritatif et faites la différence.</p>
+                <p>Début avril, nous organisons une semaine de lutte contre le cancer dans le but de récolter des fonds pour faire vivre notre association et soutenir notre cause. L'événement majeur de cette semaine sera une course contre le cancer, à laquelle étudiants, professeurs et volontaires participeront pour défendre cette noble cause.</p>
                 <p class="event-date">20 Février 2026</p>
                 <a href="cheerity-event.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card">
-                <img src="img/JCC belle photo.jpeg" alt="JCC Event" class="img-fluid rounded mb-3">
+            <div class="action-card animated-slide-right">
+                <img src="img/Thumbs UP.jpeg" alt="JCC Event" class="img-bottom">
                 <h4>Journée Culturelle CentraleSupélec</h4>
                 <p>Découvrez la richesse culturelle de notre campus.</p>
                 <p class="event-date">15 Mars 2026</p>
@@ -102,6 +103,25 @@
 <footer>
     <p>&copy; 2023 Cheer Up CentraleSupélec. Tous droits réservés.</p>
 </footer>
+
+<script>
+    // Déclenche les animations au scroll pour les sections animées
+    function handleScrollAnimations() {
+        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.85) {
+                el.classList.add('in-view');
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
+            el.classList.remove('in-view');
+        });
+        handleScrollAnimations();
+    });
+    window.addEventListener('scroll', handleScrollAnimations);
+</script>
 
 </body>
 </html>

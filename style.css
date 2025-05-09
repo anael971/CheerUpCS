@@ -140,7 +140,8 @@ nav a:hover::after {
     display: none;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
     display: block;
     opacity: 1;
     transform: translateY(0);
@@ -487,11 +488,14 @@ h2.text-primary {
 
 .action-card img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    height: 300px; /* Hauteur fixe */
+    object-fit: cover; /* Recadre l'image pour remplir l'espace */
+    border-radius: 10px; /* Coins arrondis */
 }
-
+/* Pour les images spécifiques */
+.img-bottom {
+    object-position: bottom;
+}
 .action-card h4 {
     font-size: 1.3em;
     margin-bottom: 10px;
@@ -970,28 +974,25 @@ footer {
     justify-items: center;
     margin-top: 20px;
 }
-
 .team-member {
     text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: transparent; /* Suppression du rectangle */
+    padding: 0;              /* Suppression de l'espace interne */
+    border-radius: 0;        /* Suppression de l'arrondi */
+    box-shadow: none;        /* Suppression de l'ombre */
+    transition: none;
 }
-
 .team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: none;
 }
-
 .team-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    border: 3px solid #e41c1c;
+    border: 3px solid #1c23e4;
 }
 
 .team-member h4 {
@@ -1003,4 +1004,41 @@ footer {
 .team-role {
     font-size: 0.9em;
     color: #555;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+/* Animations pour l'accueil */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-250px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(250px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+.animated-slide-left,
+.animated-slide-right {
+    opacity: 0;
+}
+
+.animated-slide-left.in-view {
+    animation: slideInLeft 1.7s ease-out forwards;
+}
+
+.animated-slide-right.in-view {
+    animation: slideInRight 1.7s ease-out forwards;
+}
+
+.animated-delay-1 {
+    animation-delay: 0.2s;
+}
+.animated-delay-2 {
+    animation-delay: 0.4s;
+}
+.animated-delay-3 {
+    animation-delay: 0.6s;
 }
