@@ -352,6 +352,16 @@ nav a:hover::after {
     margin-bottom: 40px;
 }
 
+/* Style harmonisé pour les titres des pôles */
+h2.text-primary {
+    font-family: 'Roboto', Arial, sans-serif; /* Assure une cohérence avec le reste du site */
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #e41c1c; /* Rouge principal utilisé sur le site */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 /* Mission block */
 .mission-block {
     display: flex;
@@ -455,19 +465,18 @@ nav a:hover::after {
 
 .action-cards {
     display: flex;
-    gap: 30px;
     flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
-    margin-top: 40px;
 }
 
 .action-card {
-    flex: 1;
-    min-width: 250px;
+    flex: 1 1 calc(33.333% - 30px);
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -476,22 +485,40 @@ nav a:hover::after {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.card-icon {
-    font-size: 3em;
+.action-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
     margin-bottom: 15px;
-    text-align: center;
 }
 
 .action-card h4 {
     font-size: 1.3em;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #e41c1c;
-    text-align: center;
 }
 
 .action-card p {
     color: #555;
-    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.action-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    background-color: #e41c1c;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.action-card .btn:hover {
+    background-color: #c01616;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(228, 28, 28, 0.4);
 }
 
 /* Federation block */
@@ -859,21 +886,22 @@ footer {
     opacity: 1; /* Transition d'opacité */
 }
 
-/* Container des cartes d'évènements */
+/* Container des cartes d'évènements en grille à trois colonnes */
 .event-cards {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 /* Style de chaque carte d'évènement */
+/* Remplacer ou supprimer la largeur fixe en flexbox */
 .event-card {
     position: relative;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 12px;
     overflow: hidden;
-    width: 300px;
+    width: 100%; /* occupe toute la largeur de la cellule */
     transition: transform 0.3s;
 }
 
@@ -932,4 +960,47 @@ footer {
 
 .event-card .event-link:hover {
     text-decoration: underline;
+}
+
+/* Styles pour la grille des membres de l'équipe */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.team-member {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #e41c1c;
+}
+
+.team-member h4 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 0.9em;
+    color: #555;
 }

@@ -6,11 +6,6 @@
     <meta name="description" content="CheerUp - Visites à l'hôpital">
     <title>Visites - CheerUp Centrale Supélec</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        a {
-            text-decoration: none; /* Ensures links are consistent */
-        }
-    </style>
 </head>
 <body>
     <!-- En-tête du site -->
@@ -43,53 +38,66 @@
     <!-- Section principale -->
     <main class="container my-5">
         <section class="text-center mb-5">
-            <h1 class="text-primary">Visites à l'Hôpital</h1>
-            <p>Découvrez comment nous apportons des moments de joie et de réconfort aux jeunes patients.</p>
+            <h1>Nos Visites</h1>
+            <p>Découvrez comment nous apportons soutien et réconfort aux jeunes patients à travers nos visites régulières.</p>
         </section>
 
-        <section>
-            <h2 class="text-primary mb-4">Notre Engagement</h2>
-            <p>Chaque semaine, nos bénévoles se rendent à l'hôpital Gustave Roussy pour rencontrer des jeunes patients atteints de cancer. Ces visites sont l'occasion de partager des moments de discussion, de jeux, et d'activités qui permettent aux patients de s'évader de leur quotidien.</p>
-            <p>Nous croyons fermement que ces instants de bonheur contribuent à leur bien-être et leur donnent la force de continuer à se battre.</p>
-        </section>
- 
-
-        <section class="mt-5">
-            <h2 class="text-primary mb-4">Galerie</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="img/visites1.jpg" alt="Visite 1" class="img-fluid rounded mb-3">
+        <!-- Section Témoignage et Statistiques -->
+        <section class="d-flex align-items-center mb-5">
+            <!-- Témoignage à gauche -->
+            <div class="testimonial" style="flex: 1; padding-right: 20px;">
+                <div class="testimonial-image">
+                    <img src="img/Cheerity_gauthier.jpg" alt="Témoignage" class="img-fluid rounded" style="max-width:100%; max-height:300px; object-fit:contain;">
                 </div>
-                <div class="col-md-4">
-                    <img src="img/visites2.jpg" alt="Visite 2" class="img-fluid rounded mb-3">
+                <div class="testimonial-text mt-3">
+                    <blockquote class="blockquote">
+                        <p>"Cheer Up a changé ma vie. Grâce à leur soutien, j'ai retrouvé l'espoir et le sourire pendant un moment très difficile."</p>
+                        <footer class="blockquote-footer">Jean Dupont</footer>
+                    </blockquote>
                 </div>
-                <div class="col-md-4">
-                    <img src="img/visites3.jpg" alt="Visite 3" class="img-fluid rounded mb-3">
+            </div>
+            <!-- Statistiques à droite -->
+            <div class="stats" style="flex: 1;">
+                <h2>Statistiques</h2>
+                <div class="mission-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-text">Visites annuelles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-text">Jeunes accompagnés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">20</span>
+                        <span class="stat-text">Bénévoles actifs</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="mt-5">
-            <h2 class="text-primary mb-4">Témoignage</h2>
-            <blockquote class="blockquote text-center">
-                <p class="mb-4">"Cheer Up m'a apporté un immense soutien pendant mon traitement. Les moments passés avec les bénévoles m'ont permis de retrouver le sourire et de me sentir moins seul dans cette épreuve."</p>
-                <footer class="blockquote-footer">Alexandre, ancien patient</footer>
-            </blockquote>
-        </section>
-
-        <section class="mt-5">
-            <h2 class="text-primary mb-4">Évènements</h2>
-            <div class="event-cards">
-                <div class="event-card">
-                    <img src="img/event1.jpg" alt="Évènement 1" class="event-image">
-                    <div class="event-info">
-                        <h3 class="event-title">Titre de l'évènement</h3>
-                        <p class="event-description">Description brève de l'évènement, en une ou deux phrases.</p>
-                        <p class="event-date">20 Octobre 2025</p>
-                        <a href="evenement1.html" class="event-link">En savoir plus</a>
+        <!-- Section Carousel -->
+        <section class="carousel-section">
+            <h2>Moments Partagés</h2>
+            <div id="visites-carousel" class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="slide active">
+                        <img src="img/cheerity_HL.jpg" alt="Visite image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/TU photo 3.jpeg" alt="Visite image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/JCC Julia X Ted.jpeg" alt="Visite image 3">
                     </div>
                 </div>
-                <!-- Vous pouvez ajouter d'autres cartes d'évènements ici -->
+                <button class="carousel-arrow prev-arrow" aria-label="Image précédente"></button>
+                <button class="carousel-arrow next-arrow" aria-label="Image suivante"></button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
             </div>
         </section>
     </main>
@@ -98,5 +106,6 @@
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
     </footer>
+    <script src="js/carousel.js"></script>
 </body>
 </html>
