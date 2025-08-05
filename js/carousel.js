@@ -129,3 +129,39 @@ const CheerUpCarousel = (() => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = CheerUpCarousel;
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+    const carousels = document.querySelectorAll('.carousel-container');
+    carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.slide');
+        const prevBtn = carousel.querySelector('.prev-arrow');
+        const nextBtn = carousel.querySelector('.next-arrow');
+        let index = 0;
+        
+        function showSlide(i) {
+            slides.forEach((slide, idx) => {
+                slide.classList.toggle('active', idx === i);
+            });
+        }
+        
+        prevBtn.addEventListener('click', function(){
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        });
+        
+        nextBtn.addEventListener('click', function(){
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        });
+        
+        // Gestion des dots si présents
+        const dots = carousel.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', function(){
+                index = idx;
+                showSlide(index);
+                dots.forEach((d, i) => d.classList.toggle('active', i === index));
+            });
+        });
+    });
+});
