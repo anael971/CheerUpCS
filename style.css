@@ -19,7 +19,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+    background-color: #073659; /* Bleu */
     padding: 15px 5%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
@@ -46,7 +46,7 @@ header {
 .logo-text {
     font-size: 1.2em;
     font-weight: 600;
-    color: #333;
+    color: #fff; /* Texte blanc */
     white-space: nowrap;
     margin-left: 5px;
 }
@@ -70,7 +70,7 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Texte blanc */
     font-weight: 600;
     font-size: 1.1em;
     position: relative;
@@ -148,181 +148,193 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   Carousel
+   Carousel Accueil pleine largeur et pleine hauteur
    ========================================================================== */
 #image-carousel {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    min-height: 400px;
+    max-height: 100vh;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     overflow: hidden;
-    margin-bottom: 30px;
+    background: #073659;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.carousel-container {
+#image-carousel .carousel-container {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    margin: 0;
     position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.carousel-slides {
+#image-carousel .carousel-slides {
     position: relative;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
 }
 
-.slide {
+#image-carousel .slide {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.slide.active {
+#image-carousel .slide.active {
     opacity: 1;
     z-index: 2;
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
+#image-carousel .slide img {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
     object-fit: cover;
-}
-
-/* Citations sur les images */
-.inspiring-quote {
-    position: absolute;
-    z-index: 5;
-    padding: 0;
-}
-
-.inspiring-quote.left {
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.inspiring-quote.right {
-    right: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.inspiring-quote span {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    line-height: 1.4;
-    color: white;
-    text-align: center;
-    font-weight: 700;
-    position: relative;
-    padding: 0;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
     display: block;
-    letter-spacing: 1px;
-    background: transparent;
 }
 
-/* Animation pour le texte sur l'image */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.inspiring-quote.left span {
-    animation: fadeIn 1.5s ease-out;
-}
-
-.inspiring-quote.right span {
-    animation: fadeInRight 1.5s ease-out;
-}
-
-/* Flèches de navigation */
-.carousel-arrow {
+/* Flèches et dots du carrousel accueil */
+#image-carousel .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #333;
+    width: 55px;
+    height: 55px;
+    background-color: rgba(255,255,255,0.85);
+    color: #073659;
     border: none;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s, transform 0.2s;
     outline: none;
 }
 
-.carousel-arrow:hover {
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+#image-carousel .carousel-arrow:hover {
+    background: #e41c1c;
+    color: #fff;
     transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-arrow:active {
-    transform: translateY(-50%) scale(0.95);
-}
+#image-carousel .prev-arrow { left: 35px; }
+#image-carousel .next-arrow { right: 35px; }
 
-.prev-arrow {
-    left: 25px;
-}
-
-.next-arrow {
-    right: 25px;
-}
-
-.prev-arrow::before,
-.next-arrow::before {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-style: solid;
-    border-width: 3px 0 0 3px;
-    transform: rotate(-45deg);
-    margin-left: 3px;
-}
-
-.next-arrow::before {
-    transform: rotate(135deg);
-    margin-left: -3px;
-}
-
-/* Indicateurs de slides (points) */
-.carousel-dots {
+#image-carousel .carousel-dots {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 14px;
     z-index: 10;
 }
 
-.dot {
-    width: 12px;
-    height: 12px;
+#image-carousel .dot {
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background: rgba(228,28,28,0.3);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
-.dot.active {
-    background-color: white;
+#image-carousel .dot.active {
+    background: #e41c1c;
+}
+
+/* Citations sur les images */
+#image-carousel .inspiring-quote {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0;
+    max-width: 40vw;
+}
+
+#image-carousel .inspiring-quote.left {
+    left: 60px;
+    text-align: left;
+}
+
+#image-carousel .inspiring-quote.right {
+    right: 60px;
+    text-align: right;
+}
+
+#image-carousel .inspiring-quote span {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.4;
+    color: white;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    background: transparent;
+    letter-spacing: 1px;
+    display: block;
+}
+
+/* Responsive pour le carrousel accueil */
+@media (max-width: 900px) {
+    #image-carousel,
+    #image-carousel .carousel-container,
+    #image-carousel .carousel-slides,
+    #image-carousel .slide,
+    #image-carousel .slide img {
+        height: 40vh;
+        min-height: 180px;
+        max-height: 350px;
+        width: 100vw;
+    }
+    #image-carousel .carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+    #image-carousel .prev-arrow { left: 10px; }
+    #image-carousel .next-arrow { right: 10px; }
+    #image-carousel .carousel-dots {
+        bottom: 12px;
+        gap: 8px;
+    }
+    #image-carousel .dot {
+        width: 10px;
+        height: 10px;
+    }
+    #image-carousel .inspiring-quote.left,
+    #image-carousel .inspiring-quote.right {
+        left: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+        max-width: 80vw;
+    }
+    #image-carousel .inspiring-quote span {
+        font-size: 1.3rem;
+    }
 }
 
 /* ==========================================================================
@@ -361,6 +373,16 @@ h2.text-primary {
     color: #e41c1c; /* Rouge principal utilisé sur le site */
     text-align: center;
     margin-bottom: 20px;
+}
+
+/* Centrage des titres de pôle */
+.pole-title {
+    text-align: center;
+    margin: 40px 0 20px 0;
+    font-size: 1.8em;
+    color: #e41c1c;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700;
 }
 
 /* Mission block */
@@ -800,51 +822,63 @@ footer {
 /* Section détaillée des événements */
 .event-detail {
     display: flex;
-    gap: 20px; /* Espacement entre la galerie et la description */
+    align-items: center;
+    gap: 30px; /* Espacement entre la galerie et la description */
     margin-bottom: 50px;
 }
 
 .event-gallery {
-    flex: 1; /* La galerie occupe 50% de l'espace */
+    flex: 0 0 40%;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
-    gap: 5px; /* Les photos se touchent presque */
+.carousel {
+    width: 100%;
+    max-width: 350px;
+    min-width: 220px;
+    position: relative;
 }
 
-/* Section détaillée des événements */
-.photo-grid img {
-    width: 100%; /* Prend toute la largeur de la colonne */
-    height: 150px; /* Hauteur fixe pour uniformiser les images */
-    object-fit: cover; /* Recadre les images pour remplir l'espace */
-    border-radius: 5px; /* Coins légèrement arrondis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.photo-grid img:hover {
-    transform: scale(1.05); /* Zoom au survol */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre au survol */
-}
-.event-description {
-    flex: 1; /* La description occupe 50% de l'espace */
-    padding: 20px;
-    background-color: #f9f9f9; /* Fond clair pour contraster avec la galerie */
+.carousel-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Masquer par défaut */
+}
+.carousel-img.active {
+    display: block; /* Afficher seulement l'image active */
 }
 
-.event-description h2 {
-    margin-bottom: 15px;
-    font-size: 1.8em;
+.event-description {
+    flex: 1 1 60%;
+    max-width: 60%;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    font-size: 1.1em;
     color: #333;
 }
 
-.event-description p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #555;
+/* Responsive */
+@media (max-width: 900px) {
+    .event-detail {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .event-gallery, .event-description {
+        max-width: 100%;
+        width: 100%;
+    }
+    .carousel {
+        max-width: 100%;
+    }
+    .carousel-img {
+        height: 160px;
+    }
 }
 
 /* Lightbox */
@@ -992,7 +1026,12 @@ footer {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    border: 3px solid #1c23e4;
+    transition: transform 0.3s;
+}
+
+.team-photo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(228, 28, 28, 0.2);
 }
 
 .team-member h4 {
@@ -1004,6 +1043,23 @@ footer {
 .team-role {
     font-size: 0.9em;
     color: #555;
+}
+
+/* Affichage horizontal des membres pour les pôles Communication et Tech */
+.team-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive : empile sur mobile */
+@media (max-width: 700px) {
+    .team-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
 }
 
 /* ==========================================================================
@@ -1041,4 +1097,71 @@ footer {
 }
 .animated-delay-3 {
     animation-delay: 0.6s;
+}
+
+/* Grille pour deux pôles côte à côte */
+.pole-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.pole-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Responsive : empile les pôles sur mobile */
+@media (max-width: 900px) {
+    .pole-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Deux cartes côte à côte pour la page projets */
+.action-cards.two-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+    .action-cards.two-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Statistiques côte à côte */
+.mission-stats.stats-row {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+}
+.mission-stats.stats-row .stat-item {
+    flex: 1 1 0;
+    margin-bottom: 0;
+}
+
+/* Taille des images du carrousel projet */
+.carousel-img {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Responsive : adapte la taille sur mobile */
+@media (max-width: 700px) {
+    .carousel-img {
+        max-width: 100%;
+        height: 180px;
+    }
 }
