@@ -161,7 +161,6 @@ nav a:hover::after {
     margin-left: -50vw;
     margin-right: -50vw;
     overflow: hidden;
-    background: #073659;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -208,7 +207,7 @@ nav a:hover::after {
 #image-carousel .slide img {
     width: 100vw;
     height: 100vh;
-    max-height: 100vh;
+    max-height: 90vh;
     object-fit: cover;
     display: block;
 }
