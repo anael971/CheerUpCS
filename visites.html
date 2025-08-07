@@ -3,109 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CheerUp - Visites à l'hôpital">
-    <title>Visites - CheerUp Centrale Supélec</title>
+    <title>Evènements spéciaux - Cheer Up</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .activity-section { display: flex; flex-direction: row; background: #f7f7f7; margin-bottom: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; }
+        .activity-desc { flex: 1; padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+        .activity-carousel { width: 400px; min-width: 300px; background: #fff; overflow: hidden; position: relative; }
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-img { width: 100%; flex-shrink: 0; height: 300px; object-fit: cover; object-position: center center; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #eee; border: none; font-size: 2rem; cursor: pointer; padding: 0 12px; border-radius: 50%; opacity: 0.7; transition: background 0.2s, color 0.2s; z-index: 1; }
+        .carousel-btn:hover { background: #d32f2f; color: #fff; opacity: 1; }
+        .carousel-btn.left { left: 10px; }
+        .carousel-btn.right { right: 10px; }
+        .carousel-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .carousel-indicators span { width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px; cursor: pointer; transition: background 0.3s; }
+        .carousel-indicators span.active { background: #333; }
+        @media (max-width: 900px) { .activity-section { flex-direction: column; } .activity-carousel { width: 100%; min-width: unset; } }
+    </style>
 </head>
 <body>
-    <header>
-        <!-- En-tête du site -->
-        <div class="logo-container">
-            <div class="logo">
-                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-            </div>
-            <div class="logo-text"> Antenne Centrale Supélec </div>
+<header>
+    <div class="logo-container">
+        <div class="logo"><img src="img/Logo_CU.png" alt="Cheer Up ! Logo"></div>
+        <div class="logo-text"> Antenne Centrale Supélec </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li class="dropdown">
+                <a href="#Actions" class="dropbtn">Nos Actions</a>
+                <div class="dropdown-content">
+                    <a href="visites.html">Visites</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="evenements.html">Sur le campus</a>
+                </div>
+            </li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+            <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container my-5">
+    
+
+    <!-- Activité : PSG VS Toulouse -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Visites à L'hôpital</h2>
+            <p>Cheer Up est une association engagée auprès des jeunes atteints de cancer, hospitalisés à l'Institut Gustave Roussy. Ses bénévoles rendent visite aux patients pour leur offrir écoute, soutien et moments de partage. À travers des échanges bienveillants, Cheer Up aide les jeunes à retrouver confiance et motivation pendant leur parcours de soins. L’objectif est de redonner espoir et sourire à ceux qui traversent une période difficile.</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li class="dropdown">
-                    <a href="#Actions" class="dropbtn">Nos Actions</a>
-                    <div class="dropdown-content">
-                        <a href="visites.html">Visites</a>
-                        <a href="projets.html">Projets</a>
-                        <a href="evenements.html">Sur le campus</a>
-                    </div>
-                </li>
-                <li><a href="equipe.html">Notre équipe</a></li>
-                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
-                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Section principale -->
-    <main class="container my-5">
-        <section class="text-center mb-5">
-            <h1>Nos Visites</h1>
-            <p>Découvrez comment nous apportons soutien et réconfort aux jeunes patients à travers nos visites régulières.</p>
-        </section>
-
-        <!-- Section Témoignage et Statistiques -->
-        <section class="d-flex align-items-center mb-5">
-            <!-- Témoignage à gauche -->
-            <div class="testimonial" style="flex: 1; padding-right: 20px;">
-                <div class="testimonial-image">
-                    <img src="img/Cheerity_gauthier.jpg" alt="Témoignage" class="img-fluid rounded" style="max-width:100%; max-height:300px; object-fit:contain;">
-                </div>
-                <div class="testimonial-text mt-3">
-                    <blockquote class="blockquote">
-                        <p>"Cheer Up a changé ma vie. Grâce à leur soutien, j'ai retrouvé l'espoir et le sourire pendant un moment très difficile."</p>
-                        <footer class="blockquote-footer">Jean Dupont</footer>
-                    </blockquote>
-                </div>
+        <div class="activity-carousel" data-activity="PSG_Toulouse">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/visite1.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite2.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite3.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite4.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite5.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/Visite.jpeg" class="carousel-img crop-center" alt="">
             </div>
-            <!-- Statistiques à droite -->
-            <div class="stats" style="flex: 1;">
-                <h2>Statistiques</h2>
-                <div class="mission-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">100+</span>
-                        <span class="stat-text">Visites annuelles</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-text">Jeunes accompagnés</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">20</span>
-                        <span class="stat-text">Bénévoles actifs</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <!-- Section Carousel -->
-        <section class="carousel-section">
-            <h2>Moments Partagés</h2>
-            <div id="visites-carousel" class="carousel-container">
-                <div class="carousel-slides">
-                    <div class="slide active">
-                        <img src="img/cheerity_HL.jpg" alt="Visite image 1">
-                    </div>
-                    <div class="slide">
-                        <img src="img/TU photo 3.jpeg" alt="Visite image 2">
-                    </div>
-                    <div class="slide">
-                        <img src="img/JCC Julia X Ted.jpeg" alt="Visite image 3">
-                    </div>
-                </div>
-                <button class="carousel-arrow prev-arrow" aria-label="Image précédente"></button>
-                <button class="carousel-arrow next-arrow" aria-label="Image suivante"></button>
-                <div class="carousel-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <!-- Pied de page -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
-    </footer>
-    <script src="js/carousel.js"></script>
+
+</main>
+<footer> <!-- Footer existant --> </footer>
+<script>
+    document.querySelectorAll('.activity-carousel').forEach((carousel, idx) => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const indicators = carousel.querySelector('.carousel-indicators');
+        let currentIndex = 0;
+        let intervalId;
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.addEventListener('click', () => { currentIndex = i; update(); resetInterval(); });
+            indicators.append(dot);
+        });
+        const dots = Array.from(indicators.children);
+        const update = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        };
+        carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; update(); resetInterval(); });
+        carousel.querySelector('[data-dir="next"]').addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides.length; update(); resetInterval(); });
+        const startInterval = () => { intervalId = setInterval(() => { currentIndex = (currentIndex + 1) % slides.length; update(); }, 3000); };
+        const resetInterval = () => { clearInterval(intervalId); startInterval(); };
+        carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carousel.addEventListener('mouseleave', () => startInterval());
+        setTimeout(() => { update(); startInterval(); }, idx * 800);
+    });
+</script>
 </body>
 </html>

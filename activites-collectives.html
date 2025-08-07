@@ -6,270 +6,205 @@
     <title>Activités Collectives - Cheer Up</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .activity-section {
-            display: flex;
-            flex-direction: row;
-            background: #f7f7f7;
-            margin-bottom: 32px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            overflow: hidden;
-        }
-        .activity-desc {
-            flex: 1;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .activity-carousel {
-            width: 400px;
-            min-width: 300px;
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .carousel-img {
-            width: 90%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #eee;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0 12px;
-            border-radius: 50%;
-            opacity: 0.7;
-            transition: background 0.2s, color 0.2s;
-        }
-        .carousel-btn:hover {
-            background: #d32f2f;
-            color: #fff;
-            opacity: 1;
-        }
+        .activity-section { display: flex; flex-direction: row; background: #f7f7f7; margin-bottom: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; }
+        .activity-desc { flex: 1; padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+        .activity-carousel { width: 400px; min-width: 300px; background: #fff; overflow: hidden; position: relative; }
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-img { width: 100%; flex-shrink: 0; height: 300px; object-fit: cover; object-position: center center; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #eee; border: none; font-size: 2rem; cursor: pointer; padding: 0 12px; border-radius: 50%; opacity: 0.7; transition: background 0.2s, color 0.2s; z-index: 1; }
+        .carousel-btn:hover { background: #d32f2f; color: #fff; opacity: 1; }
         .carousel-btn.left { left: 10px; }
         .carousel-btn.right { right: 10px; }
-        @media (max-width: 900px) {
-            .activity-section { flex-direction: column; }
-            .activity-carousel { width: 100%; min-width: unset; }
-        }
+        .carousel-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .carousel-indicators span { width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px; cursor: pointer; transition: background 0.3s; }
+        .carousel-indicators span.active { background: #333; }
+        @media (max-width: 900px) { .activity-section { flex-direction: column; } .activity-carousel { width: 100%; min-width: unset; } }
     </style>
 </head>
 <body>
- <header>
-        <!-- En-tête du site -->
-        <div class="logo-container">
-            <div class="logo">
-                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-            </div>
-            <div class="logo-text"> Antenne Centrale Supélec </div>
+<header>
+    <div class="logo-container">
+        <div class="logo"><img src="img/Logo_CU.png" alt="Cheer Up ! Logo"></div>
+        <div class="logo-text"> Antenne Centrale Supélec </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li class="dropdown">
+                <a href="#Actions" class="dropbtn">Nos Actions</a>
+                <div class="dropdown-content">
+                    <a href="visites.html">Visites</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="evenements.html">Sur le campus</a>
+                </div>
+            </li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+            <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container my-5">
+    <section class="text-center mb-5">
+        <h1>Activités Collectives</h1>
+        <p>Découvrez nos activités collectives, pensées pour créer des souvenirs et renforcer les liens entre les jeunes accompagnés.</p>
+    </section>
+
+    <!-- Activité : PSG VS Toulouse -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>PSG VS Toulouse</h2>
+            <p>On revient cette fois sur un match de ligue 1 PSG VS Toulouse, auquel on a eu la chance d’assister avec Wassim et Salim ❤️💙<br>
+               Ça s’est passé le 22 novembre dernier avec Domitille, Antoine, Axel et Théodore, mais on s’en rappelle comme si c’était hier avec les 3 buts de Paris 🏆 et l’ambiance électrique à côté des supporters adverses ✊</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li class="dropdown">
-                    <a href="#Actions" class="dropbtn">Nos Actions</a>
-                    <div class="dropdown-content">
-                        <a href="visites.html">Visites</a>
-                        <a href="projets.html">Projets</a>
-                        <a href="evenements.html">Sur le campus</a>
-                    </div>
-                </li>
-                <li><a href="equipe.html">Notre équipe</a></li>
-                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
-                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="container my-5">
-        <section class="text-center mb-5">
-            <h1>Activités Collectives</h1>
-            <p>Découvrez nos activités collectives, pensées pour créer des souvenirs et renforcer les liens entre les jeunes accompagnés.</p>
-        </section>
+        <div class="activity-carousel" data-activity="PSG_Toulouse">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/PSG_Toulouse.png" class="carousel-img crop-top" alt="">
+                <img src="img/TU photo 2.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/TU photo 4.jpeg" class="carousel-img crop-se" alt="">
+            </div>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <!-- Activité 1 -->
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>PSG VS Toulouse</h2>
-                <p>On revient cette fois sur un match de ligue 1 PSG VS Toulouse, auquel on a eu la chance d’assister avec Wassim et Salim ❤️💙
-Ça s’est passé le 22 novembre dernier avec Domitille, Antoine, Axel et Théodore, mais on s’en rappelle comme si c’était hier avec les 3 buts de Paris 🏆 et l’ambiance électrique à côté des supporters de l’équipe adverse ✊</p>
+    <!-- Activité : Mamma Mia -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Mamma Mia</h2>
+            <p>Mamma Mia, en comédie musicale ! Pauline et Héloïse ont accompagné Chloé, Axelle et Louna pour profiter des chants d’ABBA à la Seine Musicale.</p>
+        </div>
+        <div class="activity-carousel" data-activity="Mamma_Mia">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/Mamma_mia.png" class="carousel-img crop-top" alt="">
+                <img src="img/TU photo 2.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/TU photo 4.jpeg" class="carousel-img crop-bottom" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-PSG_Toulouse">
-                <button class="carousel-btn left" onclick="prevImg('PSG_Toulouse')">&#8592;</button>
-                <img src="img/TU photo 2.jpeg" class="carousel-img" id="img-PSG_Toulouse" alt="PSG_Toulouse">
-                <button class="carousel-btn right" onclick="nextImg('PSG_Toulouse')">&#8594;</button>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <!-- Activité 2 -->
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>Mamma_Mia</h2>
-                <p>Mamma Mia, en comédie musicale ! Pauline et Héloïse ont accompagné Chloé, Axelle et Louna pour profiter des mythiques chants d’ABBA. Une belle découverte à la Seine musicale !</p>
+    <!-- Activité : Handball Maïa -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Handball Maïa</h2>
+            <p>Samedi 3 avril, Maïa a accompagné Valérie voir les 1/8e de finale de ligue des Champions de handball, PSG vs Szeged ❤️💙. Malgré la défaite, l’ambiance était incroyable à côté des Ultras !</p>
+        </div>
+        <div class="activity-carousel" data-activity="Handball_Maia">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/projethand.jpeg" class="carousel-img crop-left" alt="">
+                <img src="img/atelier2.jpg" class="carousel-img crop-center" alt="">
+                <img src="img/atelier3.jpg" class="carousel-img crop-right" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-Mamma_Mia">
-                <button class="carousel-btn left" onclick="prevImg('Mamma_Mia')">&#8592;</button>
-                <img src="img/TU photo 3.jpeg" class="carousel-img" id="img-Mamma_Mia" alt="Mamma_Mia">
-                <button class="carousel-btn right" onclick="nextImg('Mamma_Mia')">&#8594;</button>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <!-- Activité 3 -->
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>Handball Maia</h2>
-                <p>Samedi 3 avril, Maïa a accompagné Valérie voir les 1/8e de finale de ligue des Champions de handball, opposant le PSG à Szeged ❤️💙. Malgré la défaite du PSG, l’ambiance était incroyable juste à côté des Ultras !! </p>
+    <!-- Activité : Projet C7 -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Projet C7</h2>
+            <p>Il y a 1 mois, Mathis et Axel ont accompagné Stéphane pour aller voir un match de rugby de Massy en Nat.3 🏉 le 29 mars dernier.<br>
+               Ils ont eu la chance d’être au côté du numéro 8, blessé : Simon Cowley 🤩 Visite des locaux du club, vestiaires et salle de sport 🏟️, puis McDo 🍔 et bowling 🎳.</p>
+        </div>
+        <div class="activity-carousel" data-activity="C7">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/C7_1.png" class="carousel-img crop-center" alt="">
+                <img src="img/C7_2.png" class="carousel-img crop-center" alt="">
+                <img src="img/C7_3.png" class="carousel-img crop-center" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-Handball_Maia">
-                <button class="carousel-btn left" onclick="prevImg('Handball_Maia')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-Handball_Maia" alt="Handball_Maia">
-                <button class="carousel-btn right" onclick="nextImg('Handball_Maia')">&#8594;</button>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>Projet C7</h2>
-                <p>Il y a 1 mois, Mathis et Axel ont accompagné Stéphane pour aller voir un match de rugby de l’équipe de Massy en National 3 🏉 le 29 mars dernier.
-                    Ils ont eu la chance d’être au côté du numéro 8 de l’équipe, blessé pour la fin de la saison : Simon Cowley 🤩 Un insight inédit dans la situation actuelle du club et l’enjeu du match, couronnée par une visite des locaux du club, des vestiaires à la salle de sport 🏟️.
-                    Nous avons fini la journée en beauté avec un McDo 🍔 suivi d’une partie de bowling 🎳 </p>
+    <!-- Activité : PSG vs Nantes -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Hand : PSG vs Nantes</h2>
+            <p>Le 9 mars, Axel et Ted, avec Kacper, Martyna, Ilya et Basile, ont vu le PSG l’emporter 34-28 🏆. Cadeau : écharpe du club 🔴🔵.</p>
+        </div>
+        <div class="activity-carousel" data-activity="PSG_Nantes">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/PSG_Nantes.png" class="carousel-img crop-top" alt="">
+                <img src="img/atelier2.jpg" class="carousel-img crop-center" alt="">
+                <img src="img/atelier3.jpg" class="carousel-img crop-bottom" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-C7">
-                <button class="carousel-btn left" onclick="prevImg('C7')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-C7" alt="C7">
-                <button class="carousel-btn right" onclick="nextImg('C7')">&#8594;</button>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>Projet C7</h2>
-                <p>Mathis et Axel ont accompagné Stéphane pour aller voir un match de rugby de l’équipe de Massy en National 3 🏉 le 29 mars dernier.
-                    Ils ont eu la chance d’être au côté du numéro 8 de l’équipe, blessé pour la fin de la saison : Simon Cowley 🤩 Un insight inédit dans la situation actuelle du club et l’enjeu du match, couronnée par une visite des locaux du club, des vestiaires à la salle de sport 🏟️.
-                    Nous avons fini la journée en beauté avec un McDo 🍔 suivi d’une partie de bowling 🎳 </p>
+    <!-- Activité : PSG vs Lyon -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>PSG vs Lyon</h2>
+            <p>Le 18 janvier, Victoria, Tomas et Maïa ont accompagné Kacper et sa sœur au Parc des Princes 🏟️ pour le match féminin PSG vs Lyon 🤪.</p>
+        </div>
+        <div class="activity-carousel" data-activity="PSG_OL">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/PSG_OL.png" class="carousel-img crop-left" alt="">
+                <img src="img/TU photo 2.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/TU photo 4.jpeg" class="carousel-img crop-sw" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-C7">
-                <button class="carousel-btn left" onclick="prevImg('C7')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-C7" alt="C7">
-                <button class="carousel-btn right" onclick="nextImg('C7')">&#8594;</button>
-            </div>
-        </section>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
 
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>Hand : PSG VS Nantes</h2>
-                <p>On y était ! C’était le match de handball de l’année, opposant les deux plus grandes équipes du championnat : le PSG et Nantes, le 9 mars 🫨 Axel et Ted, accompagnant Kacper et sa sœur Martyna, ainsi qu’Ilya et son frère jumeau Basile, ont assisté à la victoire du PSG 34-28 après avoir mené durant la totalité de la rencontre 🏆
-Ambiance folle couronnée par un cadeau aux couleurs du club : une écharpe du PSG 🔴🔵 </p>
+    <!-- Activité : PSG vs Sporting CP -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>PSG vs SCP</h2>
+            <p>Le 30 octobre, Kacper, son papa et Chrislène ont assisté à la victoire 30-28 en LdC handball et reçu une balle dédicacée ⚽️.</p>
+        </div>
+        <div class="activity-carousel" data-activity="PSG_SCP">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/projethand2.jpeg" class="carousel-img crop-top" alt="">
+                <img src="img/atelier2.jpg" class="carousel-img crop-center" alt="">
+                <img src="img/atelier3.jpg" class="carousel-img crop-bottom" alt="">
             </div>
-            <div class="activity-carousel" id="carousel-PSG_Nantes">
-                <button class="carousel-btn left" onclick="prevImg('PSG_Nantes')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-C7" alt="PSG_Nantes">
-                <button class="carousel-btn right" onclick="nextImg('PSG_Nantes')">&#8594;</button>
-            </div>
-        </section>
-
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>PSG VS Lyon</h2>
-                <p>Pour commencer l’année en beauté, Victoria, Tomas et Maïa ont accompagné Kacper et sa sœur au Parc des Princes 🏟️, pour assister au match de ligue 1 féminine PSG vs Lyon, le 18 janvier dernier 🤪 Et ils ont eu la chance d’être placés tout devant, tout proche des joueuses !</p>
-            </div>
-            <div class="activity-carousel" id="carousel-PSG_OL">
-                <button class="carousel-btn left" onclick="prevImg('PSG_OL')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-PSG_OL" alt="PSG_OL">
-                <button class="carousel-btn right" onclick="nextImg('PSG_OL')">&#8594;</button>
-            </div>
-        </section>
-
-        <section class="activity-section">
-            <div class="activity-desc">
-                <h2>PSG VS SCP</h2>
-                <p>Retour sur le premier projet de l’année : match de handball avec Kacper, son papa et Chrislène ! ❤️💙 Le 30 octobre dernier, accompagnés de Laure, Alice, Pauline et Robin, ils ont eu la chance d’assister à la victoire 30-28 du PSG face au Sporting Club Portugal en Ligue des Champions 💪💪
-Une ambiance inoubliable d’autant plus qu’ils sont repartis avec un petit cadeau : une balle dédicacée par l’équipe féminine de handball du PSG ⚽️🥰</p>
-            </div>
-            <div class="activity-carousel" id="carousel-PSG_SCP">
-                <button class="carousel-btn left" onclick="prevImg('PSG_SCP')">&#8592;</button>
-                <img src="img/TU Veljko.jpeg" class="carousel-img" id="img-PSG_SCP" alt="PSG_SCP">
-                <button class="carousel-btn right" onclick="nextImg('PSG_SCP')">&#8594;</button>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <!-- ...existing footer code... -->
-    </footer>
-    <script>
-        // Simple carrousel JS
-        const images = {
-            Théâtre: [
-                "img/TU photo 2.jpeg",
-                "img/BDS.png",
-                "img/Expo Photo 3.jpg"
-            ],
-            Mamma_Mia: [
-                "img/TU photo 3.jpeg",
-                "img/TU photo 2.jpeg",
-                "img/TU photo 4.jpeg"
-            ],
-            Handball_Maia: [
-                "img/TU Veljko.jpeg",
-                "img/atelier2.jpg",
-                "img/atelier3.jpg"
-            ],
-            C7: [
-                "img/TU photo 2.jpeg",
-                "img/BDS.png",
-                "img/Expo Photo 3.jpg"
-            ],
-            PSG_Toulouse: [
-                "img/TU photo 3.jpeg",
-                "img/TU photo 2.jpeg",
-                "img/TU photo 4.jpeg"
-            ],
-            PSG_Nantes: [
-                "img/TU Veljko.jpeg",
-                "img/atelier2.jpg",
-                "img/atelier3.jpg"
-            ],
-            PSG_OL: [
-                "img/TU photo 3.jpeg",
-                "img/TU photo 2.jpeg",
-                "img/TU photo 4.jpeg"
-            ],
-            PSG_SCP: [
-                "img/TU Veljko.jpeg",
-                "img/atelier2.jpg",
-                "img/atelier3.jpg"
-            ]
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
+</main>
+<footer> <!-- Footer existant --> </footer>
+<script>
+    document.querySelectorAll('.activity-carousel').forEach((carousel, idx) => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const indicators = carousel.querySelector('.carousel-indicators');
+        let currentIndex = 0;
+        let intervalId;
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.addEventListener('click', () => { currentIndex = i; update(); resetInterval(); });
+            indicators.append(dot);
+        });
+        const dots = Array.from(indicators.children);
+        const update = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
         };
-        const indices = { disney: 0, escape: 0, atelier: 0 };
-
-        function showImg(activity) {
-            document.getElementById('img-' + activity).src = images[activity][indices[activity]];
-        }
-        function prevImg(activity) {
-            indices[activity] = (indices[activity] - 1 + images[activity].length) % images[activity].length;
-            showImg(activity);
-        }
-        function nextImg(activity) {
-            indices[activity] = (indices[activity] + 1) % images[activity].length;
-            showImg(activity);
-        }
-
-        // Changement automatique toutes les 3 secondes
-        setInterval(function() {
-            nextImg('disney');
-            nextImg('escape');
-            nextImg('atelier');
-        }, 3000);
-    </script>
+        carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; update(); resetInterval(); });
+        carousel.querySelector('[data-dir="next"]').addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides.length; update(); resetInterval(); });
+        const startInterval = () => { intervalId = setInterval(() => { currentIndex = (currentIndex + 1) % slides.length; update(); }, 3000); };
+        const resetInterval = () => { clearInterval(intervalId); startInterval(); };
+        carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carousel.addEventListener('mouseleave', () => startInterval());
+        setTimeout(() => { update(); startInterval(); }, idx * 800);
+    });
+</script>
 </body>
 </html>

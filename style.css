@@ -1164,3 +1164,147 @@ footer {
         height: 180px;
     }
 }
+/* ----------------------------------
+   Classes de recadrage (object-position)
+---------------------------------- */
+.crop-top            { object-position: center top; }
+.crop-bottom         { object-position: center bottom; }
+.crop-left           { object-position: left center; }
+.crop-right          { object-position: right center; }
+.crop-nw             { object-position: left top; }
+.crop-ne             { object-position: right top; }
+.crop-sw             { object-position: left bottom; }
+.crop-se             { object-position: right bottom; }
+/* Exemple d’un recadrage personnalisé */
+.crop-custom-30-20   { object-position: 30% 20%; }
+/* Footer général */
+.footer {
+  background: #073659;    /* bleu site */
+  color: #fff;            /* texte blanc */
+}
+.footer a {
+  color: #d32f2f;         /* rouge site */
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #fff;            /* blanc au survol */
+  text-decoration: underline;
+}
+
+/* Conteneur principal */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+  align-items: start;
+}
+
+/* Titres de section */
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Liens */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li + li {
+  margin-top: 0.5rem;
+}
+
+/* Logo */
+.footer-logo img {
+  max-width: 150px;
+}
+
+/* Réseaux sociaux */
+.footer-social .social-links {
+  display: flex;
+  flex-direction: column;
+}
+.footer-social a + a {
+  margin-top: 0.5rem;
+}
+
+/* Bas de footer */
+.footer-bottom {
+  background: #062d4b;    /* nuance plus foncée du bleu */
+  border-top: 1px solid #d32f2f; /* ligne rouge */
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   Footer modernisé
+   ========================================================================== */
+.footer {
+  background: #073659;      /* bleu du site */
+  color: #fff;              /* texte blanc */
+  font-size: 0.9rem;
+}
+.footer a {
+  color: #e41c1c;           /* rouge du site */
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 2rem 5%;
+  align-items: start;
+}
+
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li + li {
+  margin-top: 0.5rem;
+}
+
+.footer-logo img {
+  max-width: 140px;
+}
+
+.footer-social .social-links,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+}
+.footer-social a + a,
+.footer-contact p + p {
+  margin-top: 0.5rem;
+}
+
+.footer-bottom {
+  background: #062d4b;                    /* bleu foncé */
+  border-top: 1px solid #e41c1c;         /* ligne rouge */
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}

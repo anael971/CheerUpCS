@@ -3,54 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Événements Spéciaux - Cheer Up CentraleSupélec">
-    <title>Événements Spéciaux - Cheer Up</title>
+    <title>Evènements spéciaux - Cheer Up</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .activity-section { display: flex; flex-direction: row; background: #f7f7f7; margin-bottom: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; }
+        .activity-desc { flex: 1; padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+        .activity-carousel { width: 400px; min-width: 300px; background: #fff; overflow: hidden; position: relative; }
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-img { width: 100%; flex-shrink: 0; height: 300px; object-fit: cover; object-position: center center; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: #eee; border: none; font-size: 2rem; cursor: pointer; padding: 0 12px; border-radius: 50%; opacity: 0.7; transition: background 0.2s, color 0.2s; z-index: 1; }
+        .carousel-btn:hover { background: #d32f2f; color: #fff; opacity: 1; }
+        .carousel-btn.left { left: 10px; }
+        .carousel-btn.right { right: 10px; }
+        .carousel-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .carousel-indicators span { width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px; cursor: pointer; transition: background 0.3s; }
+        .carousel-indicators span.active { background: #333; }
+        @media (max-width: 900px) { .activity-section { flex-direction: column; } .activity-carousel { width: 100%; min-width: unset; } }
+    </style>
 </head>
 <body>
-    <header>
-        <!-- En-tête du site -->
-        <div class="logo-container">
-            <div class="logo">
-                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-            </div>
-            <div class="logo-text"> Antenne Centrale Supélec </div>
+<header>
+    <div class="logo-container">
+        <div class="logo"><img src="img/Logo_CU.png" alt="Cheer Up ! Logo"></div>
+        <div class="logo-text"> Antenne Centrale Supélec </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li class="dropdown">
+                <a href="#Actions" class="dropbtn">Nos Actions</a>
+                <div class="dropdown-content">
+                    <a href="visites.html">Visites</a>
+                    <a href="projets.html">Projets</a>
+                    <a href="evenements.html">Sur le campus</a>
+                </div>
+            </li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+            <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container my-5">
+    <section class="text-center mb-5">
+        <h1>Evènements spéciaux</h1>
+        <p>Découvrez nos activités collectives, pensées pour créer des souvenirs et renforcer les liens entre les jeunes accompagnés.</p>
+    </section>
+
+    <!-- Activité : PSG VS Toulouse -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Ligue des Champions</h2>
+            <p>À l’occasion de la grande finale de ce soir, replongeons dans la demi-finale retour de LDC qui a vu s’affronter le PSG et Arsenal au Parc des Princes, le 7 mai dernier ❤️💙
+Ce soir-là, Karim, Salim, Loan, Angelino et Samy ont été les témoins d’une victoire historique du PSG — et pas n’importe comment : tous avaient prédit, avec une précision quasi prophétique, le score exact de 2-1 pour Paris ⚽️🏆
+
+Portés par les chants enflammés des supporters jusqu’au Parc, l’ambiance touchait déjà les sommets bien avant le coup d’envoi ✊. Tandis que les jeunes vibraient au rythme des tribunes, Gabi et Corentin ont déniché la fenêtre d’un bar à travers laquelle ils ont vécu, eux aussi, l’exploit 📺
+
+Une soirée gravée dans les mémoires, qui a mis tout le monde d’accord. Ce soir, on espère que leurs prédictions frapperont encore — et mèneront Paris à la gloire 🤩🤩</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li class="dropdown">
-                    <a href="#Actions" class="dropbtn">Nos Actions</a>
-                    <div class="dropdown-content">
-                        <a href="visites.html">Visites</a>
-                        <a href="projets.html">Projets</a>
-                        <a href="evenements.html">Sur le campus</a>
-                    </div>
-                </li>
-                <li><a href="equipe.html">Notre équipe</a></li>
-                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
-                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="container my-5">
-        <section class="text-center mb-5">
-            <h1>Événements Spéciaux</h1>
-            <p>Retrouvez nos événements marquants organisés pour et avec les jeunes.</p>
-        </section>
-        <section id="projects-container">
-            <!-- Les carrousels seront générés ici -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
-    </footer>
-    <script src="js/carousel-projets.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            loadCarouselsEvenements();
+        <div class="activity-carousel" data-activity="PSG_Toulouse">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/LDC_1.png" class="carousel-img crop-center" alt="">
+                <img src="img/LDC_2.png" class="carousel-img crop-center" alt="">
+                <img src="img/LDC_3.png" class="carousel-img crop-center" alt="">
+                <img src="img/LDC_4.png" class="carousel-img crop-center" alt="">
+                <img src="img/LDC_5.png" class="carousel-img crop-center" alt="">
+                <img src="img/LDC_6.png" class="carousel-img crop-center" alt="">
+            </div>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
+
+    <!-- Activité : Mamma Mia -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>DisneyLand</h2>
+            <p>Mamma Mia, en comédie musicale ! Pauline et Héloïse ont accompagné Chloé, Axelle et Louna pour profiter des chants d’ABBA à la Seine Musicale.</p>
+        </div>
+        <div class="activity-carousel" data-activity="Mamma_Mia">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/Mamma_mia.png" class="carousel-img crop-top" alt="">
+                <img src="img/TU photo 2.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/TU photo 4.jpeg" class="carousel-img crop-bottom" alt="">
+            </div>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
+        </div>
+    </section>
+
+</main>
+<footer> <!-- Footer existant --> </footer>
+<script>
+    document.querySelectorAll('.activity-carousel').forEach((carousel, idx) => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const indicators = carousel.querySelector('.carousel-indicators');
+        let currentIndex = 0;
+        let intervalId;
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.addEventListener('click', () => { currentIndex = i; update(); resetInterval(); });
+            indicators.append(dot);
         });
-    </script>
+        const dots = Array.from(indicators.children);
+        const update = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        };
+        carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; update(); resetInterval(); });
+        carousel.querySelector('[data-dir="next"]').addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides.length; update(); resetInterval(); });
+        const startInterval = () => { intervalId = setInterval(() => { currentIndex = (currentIndex + 1) % slides.length; update(); }, 3000); };
+        const resetInterval = () => { clearInterval(intervalId); startInterval(); };
+        carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
+        carousel.addEventListener('mouseleave', () => startInterval());
+        setTimeout(() => { update(); startInterval(); }, idx * 800);
+    });
+</script>
 </body>
 </html>
