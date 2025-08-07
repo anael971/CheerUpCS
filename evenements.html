@@ -6,14 +6,53 @@
   <meta name="description" content="Sur le Campus - CheerUp"/>
   <title>Sur le Campus - CheerUp</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Chargement des modules JavaScript -->
-  <script src="js/lightbox.js"></script>
-  <script src="js/main.js"></script>
-</head>
-<body>
+  <style>
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 350px;
+      border-radius: 12px;
+      margin-bottom: 1em;
+    }
 
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-img {
+      width: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 12px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .carousel-btn.left {
+      left: 10px;
+    }
+
+    .carousel-btn.right {
+      right: 10px;
+    }
+  </style>
+</head>
+
+<body>
 <header>
-    <!-- En-tête du site -->
     <div class="logo-container">
         <div class="logo">
             <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
@@ -22,7 +61,11 @@
     </div>
     <nav>
         <ul>
-            <li><a href="index.html">Accueil</a></li>
+            <li>
+                <a href="index.html" aria-label="Accueil">
+                    <img src="img/home.svg" alt="Accueil" class="nav-icon">
+                </a>
+            </li>
             <li class="dropdown">
                 <a href="#Actions" class="dropbtn">Nos Actions</a>
                 <div class="dropdown-content">
@@ -40,87 +83,144 @@
 </header>
 
 <main class="container my-5">
-    <section class="text-center mb-5 animated-slide-left">
+    <section class="text-center mb-5">
         <h1 class="text-primary">Sur le Campus</h1>
         <p>Découvrez nos évènements sur le campus.</p>
     </section>
-    
-    <section class="actions-overview animated-slide-right">
+
+    <section class="actions-overview">
         <h3>Nos Évènements</h3>
-        <div class="action-cards animated-slide-left">
-            <div class="action-card animated-slide-left">
-                <img src="img/Expo photo 1.jpg" alt="Campus Event 1" class="img-fluid rounded mb-3">
-                <h4>Octobre Rose</h4>
+        <div class="action-cards">
+
+            <!-- Octobre Rose -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/Expo photo 1.jpg" class="carousel-img" alt="Octobre Rose 1">
+                        <img src="img/Expo photo 2.jpg" class="carousel-img" alt="Octobre Rose 2">
+                        <img src="img/Expo photo 3.jpg" class="carousel-img" alt="Octobre Rose 3">
+                        <img src="img/Expo photo 4.jpg" class="carousel-img" alt="Octobre Rose 4">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Octobre Rose</h4>
                 <p>Une conférence inspirante pour débattre d'idées innovantes.</p>
                 <p class="event-date">15 Novembre 2025</p>
-                <a href="campus-event1.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card animated-slide-right">
-                <img src="img/Expo photo 5.jpg" alt="Campus Event 2" class="img-fluid rounded mb-3">
-                <h4>Movember</h4>
+
+            <!-- Movember -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/Expo photo 5.jpg" class="carousel-img" alt="Movember 1">
+                        <img src="img/Movember 2.jpg" class="carousel-img" alt="Movember 2">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Movember</h4>
                 <p>Participez à notre atelier créatif et laissez libre cours à votre imagination.</p>
                 <p class="event-date">22 Novembre 2025</p>
-                <a href="campus-event2.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card animated-slide-left">
-                <img src="img/Cheerity.jpeg" alt="Campus Event 3" class="img-fluid rounded mb-3">
-                <h4>Cheerity</h4>
-                <p>Ce 14 janvier 2025 nous organisons notre gala de charité annuel « Cheer’ity » lors duquel nous proposons à plusieurs entreprises de rencontrer les étudiants de CentraleSupélec de manière informelle. Le gala s'articule autour d’un dîner convivial ponctué d’interventions d’anciens patients et de professionnels de la santé.</p>
+
+            <!-- Cheerity -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/Cheerity.jpeg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/Verres cheerity.jpeg" class="carousel-img" alt="Cheerity 2">
+                        <img src="img/Cheerity_gauthier.jpg" class="carousel-img" alt="Cheerity 3">
+                        <img src="img/cheerity_HL.jpg" class="carousel-img" alt="Cheerity 4">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Cheerity</h4>
+                <p>Ce 14 janvier 2025 nous organisons notre gala de charité annuel « Cheer’ity » avec des entreprises, anciens patients, et un dîner solidaire.</p>
                 <p class="event-date">5 Décembre 2025</p>
-                <a href="campus-event3.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card animated-slide-right">
-                <img src="img/Saint Valentin.jpeg" alt="Thumbs Up Event" class="img-fluid rounded mb-3">
-                <h4>Saint Valentin</h4>
-                <p>Comme chaque année, CheerUp! t’aide à trouver l’amour. A l’occasion de la Saint-Valentin, nous livrons une magnifique renoncule cueillie en France à ton ou ta doux.ce !🌹🥀</p>
+
+            <!-- Saint Valentin -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/Saint Valentin.jpeg" class="carousel-img" alt="Saint Valentin 1">
+                        <img src="img/saintvalentin.jpeg" class="carousel-img" alt="Saint Valentin 2">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Saint Valentin</h4>
+                <p>CheerUp! t’aide à trouver l’amour avec une belle renoncule à offrir à ton/ta crush !</p>
                 <p class="event-date">10 Janvier 2026</p>
-                <a href="thumbs-up-event.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card animated-slide-left">
-                <img src="img/JCC belle photo.jpeg" alt="Cheerity Event" class="img-fluid rounded mb-3">
-                <h4>Cheerity</h4>
-                <p>Début avril, nous organisons une semaine de lutte contre le cancer dans le but de récolter des fonds pour faire vivre notre association et soutenir notre cause. L'événement majeur de cette semaine sera une course contre le cancer, à laquelle étudiants, professeurs et volontaires participeront pour défendre cette noble cause.</p>
+
+            <!-- Journées contre le cancer -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/JCC belle photo.jpeg" class="carousel-img" alt="JCC 1">
+                        <img src="img/JCC course.jpeg" class="carousel-img" alt="JCC 2">
+                        <img src="img/JCC Merwan X CU.jpeg" class="carousel-img" alt="JCC 3">
+                        <img src="img/JCC Jeanne vico.jpeg" class="carousel-img" alt="JCC 4">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Journées Contre le Cancer</h4>
+                <p>Une semaine de mobilisation avec une grande course pour soutenir la recherche contre le cancer.</p>
                 <p class="event-date">20 Février 2026</p>
-                <a href="cheerity-event.html" class="btn btn-primary">En savoir plus</a>
             </div>
-            <div class="action-card animated-slide-right">
-                <img src="img/Thumbs UP.jpeg" alt="JCC Event" class="img-bottom">
-                <h4>Journée Culturelle CentraleSupélec</h4>
-                <p>Découvrez la richesse culturelle de notre campus.</p>
+
+            <!-- JCC Culturelle -->
+            <div class="action-card">
+                <div class="carousel" data-carousel>
+                    <button class="carousel-btn left">&#10094;</button>
+                    <div class="carousel-track">
+                        <img src="img/TU photo 3.jpeg" class="carousel-img" alt="JCC Culturelle">
+                        <img src="img/TU photo 2.jpeg" class="carousel-img" alt="JCC Culturelle 2">
+                        <img src="img/TU photo 5.jpeg" class="carousel-img" alt="JCC Culturelle 3">
+                        <img src="img/TU photo 7.jpeg" class="carousel-img" alt="JCC Culturelle 4">
+                    </div>
+                    <button class="carousel-btn right">&#10095;</button>
+                </div>
+                <h4 class="pole-title">Thumbs UP</h4>
+                <p>Plongez dans la diversité culturelle de notre école lors de cette journée festive et colorée.</p>
                 <p class="event-date">15 Mars 2026</p>
-                <a href="jcc-event.html" class="btn btn-primary">En savoir plus</a>
             </div>
         </div>
     </section>
 </main>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="Image agrandie">
-</div>
-
 <footer>
-    <p>&copy; 2023 Cheer Up CentraleSupélec. Tous droits réservés.</p>
+    <p>&copy; 2025 Cheer Up CentraleSupélec. Tous droits réservés.</p>
 </footer>
 
 <script>
-    // Déclenche les animations au scroll pour les sections animées
-    function handleScrollAnimations() {
-        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.85) {
-                el.classList.add('in-view');
-            }
-        });
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.animated-slide-left, .animated-slide-right').forEach(el => {
-            el.classList.remove('in-view');
-        });
-        handleScrollAnimations();
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      let index = 0;
+
+      const update = () => {
+        track.style.transform = `translateX(-${index * 100}%)`;
+      };
+
+      carousel.querySelector('.left').addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+      });
+
+      carousel.querySelector('.right').addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+      });
+
+      update();
     });
-    window.addEventListener('scroll', handleScrollAnimations);
+  });
 </script>
 
 </body>

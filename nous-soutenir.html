@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+     <header>
         <!-- En-tête du site -->
         <div class="logo-container">
             <div class="logo">
@@ -18,7 +18,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li>
+                    <a href="index.html" aria-label="Accueil">
+                    <img src="img/home.svg" alt="Accueil" class="nav-icon">
+                    </a>
+                </li>
                 <li class="dropdown">
                     <a href="#Actions" class="dropbtn">Nos Actions</a>
                     <div class="dropdown-content">
@@ -37,44 +41,85 @@
 
     <main class="container my-5">
         <section class="text-center mb-5">
-            <h1>Nous Soutenir</h1>
-            <p>Votre générosité nous permet de continuer à accompagner les jeunes atteints de cancer et de réaliser leurs projets. Merci pour votre soutien !</p>
+            <h1 class="pole-title">Nous Soutenir</h1>
+            <p>Votre soutien nous aide à accompagner les jeunes atteints de cancer et à réaliser leurs projets. Merci pour votre générosité !</p>
         </section>
 
-        <!-- Section de don -->
-        <section class="donation-section">
-            <h2 class="text-center">Faire un Don</h2>
-            <div class="donation-container">
-                <form action="https://www.paypal.com/donate" method="post" target="_blank" class="donation-form">
-                    <label for="donation-amount">Montant du don (€) :</label>
-                    <input type="number" id="donation-amount" name="amount" min="1" step="1" placeholder="Ex : 20" required>
-                    
-                    <label for="donor-name">Nom :</label>
-                    <input type="text" id="donor-name" name="name" placeholder="Votre nom" required>
-                    
-                    <label for="donor-email">Email :</label>
-                    <input type="email" id="donor-email" name="email" placeholder="Votre email" required>
-                    
-                    <button type="submit" class="btn btn-primary">Faire un don sécurisé</button>
-                </form>
-            </div>
+        <!-- Bloc don -->
+        <section class="pole-card">
+            <h2 class="pole-title">Faire un Don</h2>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank" class="donation-form">
+                <label for="donation-amount">Montant du don (€) :</label>
+                <input type="number" id="donation-amount" name="amount" placeholder="Ex : 20" min="1" required>
+
+                <label for="donor-name">Nom :</label>
+                <input type="text" id="donor-name" name="name" placeholder="Votre nom" required>
+
+                <label for="donor-email">Email :</label>
+                <input type="email" id="donor-email" name="email" placeholder="Votre email" required>
+
+                <button type="submit" class="btn btn-primary">Faire un don sécurisé</button>
+            </form>
         </section>
 
-        <!-- Section d'informations fiscales -->
-        <section class="info-section mt-5">
-            <h2 class="text-center">Informations Fiscales</h2>
+        <!-- Message final -->
+        <section class="pole-card">
+            <h2 class="pole-title">Un grand merci ❤️</h2>
+            <p class="text-center">Chaque don compte. Grâce à vous, nous continuons d'accompagner les jeunes dans leur parcours vers la guérison.</p>
+        </section>
+
+        <!-- Informations fiscales -->
+        <section class="pole-card">
+            <h2 class="pole-title">Informations Fiscales</h2>
             <div class="tax-info">
-                <h3>Particulier</h3>
-                <p>Vous pouvez déduire <strong>66%</strong> de votre don dans la limite de <strong>20%</strong> de votre revenu imposable. <a href="https://www.impots.gouv.fr" target="_blank">Plus d'informations ici</a>.</p>
-                <h3>Entreprise ou Organisme</h3>
-                <p>L’ensemble des versements à Cheer Up! permet de bénéficier d’une réduction d’impôt sur les sociétés de <strong>60%</strong> du montant de ces versements, pris dans la limite de <strong>5/1000 du C.A. H.T.</strong> de l’entreprise. Au-delà de 5/1000 ou en cas d’exercice déficitaire, l’excédent est reportable. <a href="https://www.impots.gouv.fr" target="_blank">Plus d'informations ici</a>.</p>
+                <h3>🧾 Particulier</h3>
+                <p>Vous bénéficiez d’une déduction de <strong>66%</strong> du montant de votre don dans la limite de <strong>20%</strong> de votre revenu imposable.</p>
+                <p><a href="https://www.impots.gouv.fr" target="_blank">En savoir plus sur impots.gouv.fr</a></p>
+
+                <h3>🏢 Entreprise</h3>
+                <p>Vous pouvez déduire <strong>60%</strong> de vos dons dans la limite de <strong>5 pour mille du chiffre d'affaires HT</strong>.</p>
+                <p>L’excédent est reportable sur les exercices suivants.</p>
             </div>
         </section>
 
-        <!-- Section d'informations -->
-        <section class="info-section mt-5">
-    <footer>
-        <p>&copy; 2025 CheerUp. Tous droits réservés.</p>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section footer-logo">
+                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+            </div>
+            <div class="footer-section footer-links">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="visites.html">Visites</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="evenements.html">Sur le campus</a></li>
+                    <li><a href="equipe.html">Notre équipe</a></li>
+                    <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+                    <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section footer-social">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com/CheerUpFrance" target="_blank">Facebook</a>
+                    <a href="https://instagram.com/cheerupfrance" target="_blank">Instagram</a>
+                    <a href="https://twitter.com/CheerUpFrance" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section footer-contact">
+                <h4>Contact</h4>
+                <p>Email : <a href="mailto:contact@cheerup.fr">contact@cheerup.fr</a></p>
+                <p>Tél : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 CheerUp CentraleSupélec. Tous droits réservés.
+        </div>
     </footer>
 </body>
 </html>
