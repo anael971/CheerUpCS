@@ -29,7 +29,7 @@
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px;
+            padding: 4px;
             margin-bottom: 18px;
             border: 1.5px solid #e0e0e0;
             border-radius: 8px;
@@ -119,20 +119,26 @@
 
     <main>
         <section class="contact-section">
-            <h1>Contactez-nous</h1>
-            <form class="contact-form" id="contactForm">
-                <div class="contact-success" id="contactSuccess" style="display:none;">Votre message a bien été envoyé !</div>
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required placeholder="Votre nom">
+            <h2 class = "pole-title">Contactez-nous</h2>
+            <form action="https://formspree.io/f/myzpbeab" method="POST" class="contact-form">
+  <label for="name">Nom</label>
+  <input type="text" id="name" name="name" required placeholder="Votre nom">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="Votre email">
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required placeholder="Votre email">
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" required placeholder="Votre message"></textarea>
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="6" required placeholder="Votre message"></textarea>
 
-                <button type="submit">Envoyer</button>
-            </form>
+  <!-- Optionnel : champ pour éviter les robots -->
+  <input type="text" name="_honey" style="display:none">
+
+  <!-- Optionnel : redirection après envoi -->
+  <input type="hidden" name="_next" value="merci.html">
+
+  <button type="submit">Envoyer</button>
+</form>
+
             <div class="contact-social">
                 <span>Suivez-nous :</span>
                 <a href="https://www.instagram.com/cheer_up_cs/" target="_blank" aria-label="Instagram">
