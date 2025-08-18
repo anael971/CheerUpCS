@@ -48,18 +48,23 @@
         <!-- Bloc don -->
         <section class="pole-card">
             <h2 class="pole-title">Faire un Don</h2>
-            <form action="https://www.paypal.com/donate" method="post" target="_blank" class="donation-form">
-                <label for="donation-amount">Montant du don (€) :</label>
-                <input type="number" id="donation-amount" name="amount" placeholder="Ex : 20" min="1" required>
+            <div class="don-options">
+  <a href="https://www.sumeria.org/ton-lien-sumeria" target="_blank" class="don-button">
+    <img src="img/sumeria.webp" alt="Don Sumeria">
+    <span>Faire un don via Sumeria</span>
+  </a>
 
-                <label for="donor-name">Nom :</label>
-                <input type="text" id="donor-name" name="name" placeholder="Votre nom" required>
+  <a href="https://www.paypal.com/donate/ton-lien-paypal" target="_blank" class="don-button">
+    <img src="img/paypal.png" alt="Don PayPal">
+    <span>Faire un don via PayPal</span>
+  </a>
 
-                <label for="donor-email">Email :</label>
-                <input type="email" id="donor-email" name="email" placeholder="Votre email" required>
+  <a href="virement.html" class="don-button">
+    <img src="img/logo_CB.jpeg" alt="Don par virement">
+    <span>Faire un don par Virement Bancaire</span>
+  </a>
+</div>
 
-                <button type="submit" class="btn btn-primary">Faire un don sécurisé</button>
-            </form>
         </section>
 
         <!-- Message final -->
