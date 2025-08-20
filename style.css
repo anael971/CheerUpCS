@@ -1651,3 +1651,29 @@ footer {
     display: block; /* bouton hamburger visible en mobile */
   }
 }
+/* Justifier tout le texte des paragraphes */
+p {
+  text-align: justify;
+}
+.menu-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+header {
+  position: relative;
+}
+/* --- Correction du menu déroulant en mobile --- */
+@media (max-width: 768px) {
+  nav .dropdown-content {
+    background-color: #fff;   /* fond blanc pour bien voir */
+  }
+  nav .dropdown-content a {
+    color: #073659;           /* texte bleu */
+    display: block;
+    padding: 8px 12px;
+  }
+  nav .dropdown-content a:hover {
+    background-color: #f0f0f0; /* effet hover gris clair */
+  }
+}
