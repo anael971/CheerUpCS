@@ -1004,10 +1004,10 @@ footer {
 /* Styles pour la grille des membres de l'équipe */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     justify-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .team-member {
     text-align: center;
@@ -1347,7 +1347,7 @@ footer {
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    gap: 4px;
 }
 
 .team-member {
@@ -1675,5 +1675,18 @@ header {
   }
   nav .dropdown-content a:hover {
     background-color: #f0f0f0; /* effet hover gris clair */
+  }
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 par ligne */
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-grid {
+    grid-template-columns: 1fr; /* 1 par ligne en très petit écran */
   }
 }
