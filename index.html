@@ -16,43 +16,49 @@
         }
     </style>
 </head>
+
+
 <body>
-    <header>
-        <!-- En-tête du site -->
-        <div class="logo-container">
-            <div class="logo">
-                <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-            </div>
-            <div class="logo-text"> Antenne Centrale Supélec </div>
+   <header>
+  <div class="logo-container">
+    <div class="logo">
+      <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+    </div>
+    <!-- Texte logo masqué en mobile par CSS -->
+    <div class="logo-text">Antenne Centrale Supélec</div>
+
+    <!-- Bouton hamburger visible seulement en mobile -->
+    <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-links">
+    <ul>
+      <li>
+        <a href="index.html" aria-label="Accueil">
+          <img src="img/home.svg" alt="Accueil" class="nav-icon">
+        </a>
+      </li>
+      <li class="dropdown">
+        <a href="#Actions" class="dropbtn">Nos Actions</a>
+        <div class="dropdown-content">
+          <a href="visites.html">Visites</a>
+          <a href="projets.html">Projets</a>
+          <a href="evenements.html">Sur le campus</a>
         </div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html" aria-label="Accueil">
-                    <img src="img/home.svg" alt="Accueil" class="nav-icon">
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#Actions" class="dropbtn">Nos Actions</a>
-                    <div class="dropdown-content">
-                        <a href="visites.html">Visites</a>
-                        <a href="projets.html">Projets</a>
-                        <a href="evenements.html">Sur le campus</a>
-                    </div>
-                </li>
-                <li><a href="equipe.html">Notre équipe</a></li>
-                <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
-                <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      </li>
+      <li><a href="equipe.html">Notre équipe</a></li>
+      <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+    <!--  <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>--> 
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
 
 
     <section id="image-carousel">
-        <div class="inspiring-quote left">
-        <span>Se battre pour son projet</span>
-    </div>
+
         <div class="carousel-container">
             <div class="carousel-slides">
                 <div class="slide active">
@@ -67,22 +73,16 @@
             </div>
             
             <!-- Modifiez ces lignes: -->
-            <button class="carousel-arrow prev-arrow" aria-label="Image précédente"></button>
-            <button class="carousel-arrow next-arrow" aria-label="Image suivante"></button>
-            
-            <div class="carousel-dots">
+            <button class="carousel-arrow prev-arrow" aria-label="Image précédente">&#10094;</button>
+            <button class="carousel-arrow next-arrow" aria-label="Image suivante">&#10095;</button>
+
+            <!--<div class="carousel-dots">
                 <span class="dot active" data-slide="0"></span>
                 <span class="dot" data-slide="1"></span>
                 <span class="dot" data-slide="2"></span>
-            </div>
-        </div>
-        <div class="inspiring-quote right">
-            <span>Se battre contre le cancer</span>
+            </div>-->
         </div>
     </section>
-    
-
-    
     <!-- Section principale -->
     <section id="accueil" class="welcome-section">
         <div class="container">
@@ -106,7 +106,7 @@
                         <span class="stat-text">Visites annuelles</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="50" data-plus="true">0</span>
+                        <span class="stat-number" data-target="20" data-plus="true">0</span>
                         <span class="stat-text">Projets réalisés</span>
                     </div>
                 </div>
@@ -146,37 +146,34 @@
             </div>
         </div>
     </section>
-
-  <footer class="footer">
+<footer class="footer-simple">
   <div class="footer-container">
     <!-- Logo -->
     <div class="footer-logo">
-      <img src="img/Logo_CU.png" alt="Logo Cheer Up" class="footer-logo-img">
+      <img src="img/Logo_CU.png" alt="CheerUp Logo">
     </div>
 
+    <!-- Mentions légales -->
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+
+    <div class="footer-links">
+      <a>CheerUp Centrale Supélec</a>
+    </div>
+    
     <!-- Réseaux sociaux -->
     <div class="footer-social">
-      <h4>Suivez-nous</h4>
       <a href="https://www.instagram.com/cheer_up_cs/" target="_blank" aria-label="Instagram">
         <img src="img/Instagram_icon.png" alt="Instagram" class="footer-icon">
       </a>
-      <a href="https://www.linkedin.com/company/cheer-up-centralesupelec/" target="_blank" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/company/cheer-up-centralesupelec/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
         <img src="img/LinkedIn_icon.svg.png" alt="LinkedIn" class="footer-icon">
       </a>
     </div>
-
-    <!-- Contact -->
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p><a href="mailto:contact@cheerup.fr">contact@cheerup.fr</a></p>
-    </div>
-  </div>
-
-  <!-- Mentions légales -->
-  <div class="footer-bottom">
-    <a href="mentions-legales.html">Mentions légales</a> • &copy; 2025 Cheer Up CentraleSupélec
   </div>
 </footer>
+
 
 
     <script>
@@ -198,5 +195,7 @@
     });
     window.addEventListener('scroll', handleScrollAnimations);
     </script>
+
+<script src="js/menu.js"></script>
 </body>
 </html>
