@@ -1716,3 +1716,10 @@ header {
   justify-content: center;
   align-items: center;
 }
+/* Marges latérales sur mobile */
+@media (max-width: 768px) {
+  body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
