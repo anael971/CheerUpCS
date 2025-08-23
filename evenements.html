@@ -158,6 +158,12 @@ Au menu : les incontournables monaco, crêpes et roulés de saucisse 🌭🥞, p
                         <img src="img/Cheerity_2.jpg" class="carousel-img" alt="Cheerity 1">
                         <img src="img/Cheerity_3.jpg" class="carousel-img" alt="Cheerity 1">
                         <img src="img/Cheerity_4.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/Cheerity_soso.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/Cheerity_zak.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/CU-27:28.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/CU-filles.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/Cu27.jpg" class="carousel-img" alt="Cheerity 1">
+                        <img src="img/Cheerity_gabi.jpg" class="carousel-img" alt="Cheerity 1">
                     </div>
                     <button class="carousel-btn right">&#10095;</button>
                 </div>
@@ -198,6 +204,10 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
                         <img src="img/JCC_course_2.jpeg" class="carousel-img" alt="JCC 4">
                         <img src="img/JCC_Magnum.jpeg" class="carousel-img" alt="JCC 4">
                         <img src="img/JCC_Raze.jpeg" class="carousel-img" alt="JCC 4">
+                        <img src="img/CCC.jpg" class="carousel-img" alt="JCC 4">
+                        <img src="img/JCC_banderole.jpg" class="carousel-img" alt="JCC 4">
+                        <img src="img/CU_X_Pascal.jpg" class="carousel-img" alt="JCC 4">
+
                     </div>
                     <button class="carousel-btn right">&#10095;</button>
                 </div>
@@ -216,6 +226,8 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
                         <img src="img/TU_5.jpg" class="carousel-img" alt="JCC Culturelle 3">
                         <img src="img/TU_2.jpg" class="carousel-img" alt="JCC Culturelle 4">
                         <img src="img/TU photo 2.jpeg" class="carousel-img" alt="JCC Culturelle 3">
+                        <img src="img/TU_3.jpeg" class="carousel-img" alt="JCC Culturelle 4">
+                        <img src="img/TU_Eiffel.jpg" class="carousel-img" alt="JCC Culturelle 3">
                         <img src="img/TU_3.jpeg" class="carousel-img" alt="JCC Culturelle 4">
 
                     </div>
@@ -267,11 +279,12 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  // Gestion des carrousels
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('[data-carousel]').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
+    const prevButton = carousel.querySelector('.left');
+    const nextButton = carousel.querySelector('.right');
     const dotsContainer = document.createElement('div');
     dotsContainer.classList.add('carousel-dots');
     carousel.appendChild(dotsContainer);
@@ -283,44 +296,43 @@ document.addEventListener("DOMContentLoaded", function() {
       dotsContainer.appendChild(dot);
 
       dot.addEventListener('click', () => {
-        slides.forEach(slide => slide.style.display = 'none');
-        slides[index].style.display = 'block';
-        updateDots(index);
+        updateCarousel(index);
       });
     });
 
-    const updateDots = (activeIndex) => {
-      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
-      });
-    };
+    let currentIndex = 0;
 
-    let index = 0;
-    const update = () => {
+    const updateCarousel = (index) => {
+      currentIndex = index;
       track.style.transform = `translateX(-${index * 100}%)`;
-      updateDots(index);
+      updateDots();
     };
 
-    carousel.querySelector('.left').addEventListener('click', () => {
-      index = (index - 1 + slides.length) % slides.length;
-      update();
+    const updateDots = () => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    carousel.querySelector('.right').addEventListener('click', () => {
-      index = (index + 1) % slides.length;
-      update();
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    update();
+    updateCarousel(currentIndex);
   });
+});
+</script>
 
-  // Gestion de la lightbox
-  const lightbox = document.getElementById('lightbox');
-  const lightboxTrack = lightbox.querySelector('.carousel-track');
-  const closeBtn = lightbox.querySelector('.close');
-  const leftBtn = lightbox.querySelector('.left');
-  const rightBtn = lightbox.querySelector('.right');
-  let currentIndex = 0;
+
+<script src="js/menu.js"></script>
+</body>
+</html>
 
   document.querySelectorAll('[data-carousel]').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');

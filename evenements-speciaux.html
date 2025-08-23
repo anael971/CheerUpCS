@@ -60,6 +60,30 @@
             font-size: 28px;
             cursor: pointer;
         }
+
+        /* Styles pour les dots du carousel */
+    .carousel-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 3;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+        background-color: #fff;
+    }
     </style>
 </head>
 <body>
@@ -199,53 +223,57 @@
   </div>
 </footer>
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.activity-carousel').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const prevButton = carousel.querySelector('.carousel-btn.left');
+        const nextButton = carousel.querySelector('.carousel-btn.right');
+
+        // Création du conteneur de dots
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'carousel-dots';
+        
+        // Création des dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => updateCarousel(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        carousel.appendChild(dotsContainer);
+
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Mise à jour des dots
+            dotsContainer.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel(currentIndex);
+        });
+
+        // État initial
+        updateCarousel(0);
+    });
+});
+</script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.activity-carousel').forEach(carousel => {
-    const track = carousel.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const dotsContainer = document.createElement('div');
-    dotsContainer.classList.add('carousel-dots');
-    carousel.appendChild(dotsContainer);
-
-    slides.forEach((_, index) => {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dotsContainer.appendChild(dot);
-
-      dot.addEventListener('click', () => {
-        slides.forEach(slide => slide.style.display = 'none'); // Masquer toutes les images
-        slides[index].style.display = 'block'; // Afficher l'image sélectionnée
-        updateDots(index);
-      });
-    });
-
-    const updateDots = (activeIndex) => {
-      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
-      });
-    };
-
-    let index = 0;
-    const update = () => {
-      slides.forEach(slide => slide.style.display = 'none'); // Masquer toutes les images
-      slides[index].style.display = 'block'; // Afficher uniquement l'image actuelle
-      updateDots(index);
-    };
-
-    carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-      index = (index - 1 + slides.length) % slides.length;
-      update();
-    });
-
-    carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-      index = (index + 1) % slides.length;
-      update();
-    });
-
-    update(); // Initialiser l'affichage correct
-  });
-
   // Gestion de la lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxTrack = lightbox.querySelector('.carousel-track');

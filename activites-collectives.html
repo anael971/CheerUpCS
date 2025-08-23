@@ -128,7 +128,6 @@
             <div class="carousel-track">
                 <img src="img/PSG_Toulouse.png" class="carousel-img crop-top" alt="">
                 <img src="img/PSG_toulouse_affiche.jpeg" class="carousel-img crop-center" alt="">
-                <img src="img/TU photo 4.jpeg" class="carousel-img crop-se" alt="">
             </div>
             <button class="carousel-btn right" data-dir="next">&#8594;</button>
             <div class="carousel-indicators"></div>
@@ -155,8 +154,16 @@
     <!-- Activité : Handball Maïa -->
     <section class="activity-section">
         <div class="activity-desc">
-            <h2>Handball Maïa</h2>
+            <h2>Hand : PSG vs Szegded</h2>
             <p>Samedi 3 avril, Maïa a accompagné Valérie pour vivre les 1/8e de finale de Ligue des Champions de handball, PSG vs Szeged ❤️💙. Si le score n’a pas tourné en faveur de Paris, l’expérience a été inoubliable : intensité sur le terrain, frissons dans les tribunes et une ambiance survoltée portée par les Ultras 🔥👏. Un moment fort, gravé
+        </div>
+         <div class="activity-carousel" data-activity="PSG_Segzed">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/PSG_Szeged.png" class="carousel-img crop-top" alt="">
+            </div>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+            <div class="carousel-indicators"></div>
         </div>
     </section>
 
@@ -173,7 +180,6 @@
                 <img src="img/PSG_Nantes_Affiche.jpg" class="carousel-img crop-center" alt="">
             </div>
             <button class="carousel-btn right" data-dir="next">&#8594;</button>
-            <div class="carousel-indicators"></div>
         </div>
     </section>
 
@@ -188,6 +194,7 @@
             <div class="carousel-track">
                 <img src="img/PSG_OL.png" class="carousel-img crop-left" alt="">
                 <img src="img/PSG_OL_affiche.jpg" class="carousel-img crop-center" alt="">
+                <img src="img/TU photo 2.jpeg" class="carousel-img crop-center" alt="">
             </div>
             <button class="carousel-btn right" data-dir="next">&#8594;</button>
             <div class="carousel-indicators"></div>
@@ -248,55 +255,55 @@
   </div>
 </footer>
 <script>
-document.querySelectorAll('.activity-carousel').forEach(carousel => {
-  const track = carousel.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  let currentIndex = 0;
-
-  const update = () => {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === currentIndex ? 'block' : 'none'; // Afficher uniquement l'image actuelle
-    });
-  };
-
-  carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    update();
-  });
-
-  carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    update();
-  });
-
-  update();
-});
-
-// Lightbox functionality
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.activity-carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
-    let index = 0;
+    const prevButton = carousel.querySelector('[data-dir="prev"]');
+    const nextButton = carousel.querySelector('[data-dir="next"]');
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('carousel-dots');
+    carousel.appendChild(dotsContainer);
 
-    const update = () => {
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+
+      dot.addEventListener('click', () => {
+        updateCarousel(index);
+      });
+    });
+
+    let currentIndex = 0;
+
+    const updateCarousel = (index) => {
+      currentIndex = index;
       track.style.transform = `translateX(-${index * 100}%)`;
+      updateDots();
     };
 
-    carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-      index = (index - 1 + slides.length) % slides.length;
-      update();
+    const updateDots = () => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-      index = (index + 1) % slides.length;
-      update();
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    update();
+    updateCarousel(currentIndex);
   });
 
-  // Gestion de la lightbox
+  // Lightbox functionality
   const lightbox = document.getElementById('lightbox');
   const lightboxTrack = lightbox.querySelector('.carousel-track');
   const closeBtn = lightbox.querySelector('.close');
@@ -310,14 +317,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     slides.forEach((slide, index) => {
       slide.addEventListener('click', () => {
-        // Copier les images dans la lightbox
         lightboxTrack.innerHTML = '';
-        slides.forEach((img) => {
+        slides.forEach(img => {
           const clone = img.cloneNode(true);
           lightboxTrack.appendChild(clone);
         });
-
-        // Afficher la lightbox
         currentIndex = index;
         lightbox.style.display = 'flex';
         updateLightbox();
@@ -326,38 +330,43 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   const updateLightbox = () => {
-    const images = Array.from(lightboxTrack.children);
-    images.forEach((img, i) => {
+    Array.from(lightboxTrack.children).forEach((img, i) => {
       img.style.display = i === currentIndex ? 'block' : 'none';
     });
   };
 
-  leftBtn.addEventListener('click', () => {
+  leftBtn?.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + lightboxTrack.children.length) % lightboxTrack.children.length;
     updateLightbox();
   });
 
-  rightBtn.addEventListener('click', () => {
+  rightBtn?.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % lightboxTrack.children.length;
     updateLightbox();
   });
 
-  closeBtn.addEventListener('click', () => {
+  closeBtn?.addEventListener('click', () => {
     lightbox.style.display = 'none';
   });
 
-  lightbox.addEventListener('click', (e) => {
+  lightbox?.addEventListener('click', (e) => {
     if (e.target === lightbox) {
       lightbox.style.display = 'none';
     }
   });
 });
 </script>
+<script src="js/menu.js"></script>
+</body>
+</html>
+</script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.activity-carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
+    const prevButton = carousel.querySelector('[data-dir="prev"]');
+    const nextButton = carousel.querySelector('[data-dir="next"]');
     const dotsContainer = document.createElement('div');
     dotsContainer.classList.add('carousel-dots');
     carousel.appendChild(dotsContainer);
@@ -369,39 +378,38 @@ document.addEventListener("DOMContentLoaded", function() {
       dotsContainer.appendChild(dot);
 
       dot.addEventListener('click', () => {
-        index = update(index);
+        updateCarousel(index);
       });
     });
 
-    const updateDots = (activeIndex) => {
+    let currentIndex = 0;
+
+    const updateCarousel = (index) => {
+      currentIndex = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      updateDots();
+    };
+
+    const updateDots = () => {
       dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
+        dot.classList.toggle('active', index === currentIndex);
       });
     };
 
-    let index = 0;
-    const update = (newIndex) => {
-      slides.forEach((slide, i) => {
-        slide.style.display = i === newIndex ? 'block' : 'none'; // Afficher uniquement l'image actuelle
-      });
-      updateDots(newIndex);
-      return newIndex;
-    };
-
-    carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-      index = update((index - 1 + slides.length) % slides.length);
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-      index = update((index + 1) % slides.length);
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    update(index); // Initialiser l'affichage correct
+    updateCarousel(currentIndex);
   });
 });
 </script>
 <script src="js/menu.js"></script>
-</body>
-</html>
 </body>
 </html>

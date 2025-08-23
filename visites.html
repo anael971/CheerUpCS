@@ -255,10 +255,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.activity-carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
+    const prevButton = carousel.querySelector('.carousel-btn.left');
+    const nextButton = carousel.querySelector('.carousel-btn.right');
     const dotsContainer = document.createElement('div');
     dotsContainer.classList.add('carousel-dots');
     carousel.appendChild(dotsContainer);
@@ -270,35 +272,35 @@ document.addEventListener("DOMContentLoaded", function() {
       dotsContainer.appendChild(dot);
 
       dot.addEventListener('click', () => {
-        slides.forEach(slide => slide.style.display = 'none');
-        slides[index].style.display = 'block';
-        updateDots(index);
+        updateCarousel(index);
       });
     });
 
-    const updateDots = (activeIndex) => {
-      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === activeIndex);
-      });
-    };
+    let currentIndex = 0;
 
-    let index = 0;
-    const update = () => {
+    const updateCarousel = (index) => {
+      currentIndex = index;
       track.style.transform = `translateX(-${index * 100}%)`;
-      updateDots(index);
+      updateDots();
     };
 
-    carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-      index = (index - 1 + slides.length) % slides.length;
-      update();
+    const updateDots = () => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-      index = (index + 1) % slides.length;
-      update();
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
     });
 
-    update();
+    updateCarousel(currentIndex);
   });
 });
 </script>
