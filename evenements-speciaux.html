@@ -33,6 +33,33 @@
         .carousel-indicators span { width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px; cursor: pointer; transition: background 0.3s; }
         .carousel-indicators span.active { background: #333; }
         @media (max-width: 900px) { .activity-section { flex-direction: column; } .activity-carousel { width: 100%; min-width: unset; } }
+
+        /* Styles pour la lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox-carousel {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +160,17 @@
         </div>
     </section>
 </main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <div class="lightbox-carousel">
+    <button class="carousel-btn left">&#10094;</button>
+    <div class="carousel-track"></div>
+    <button class="carousel-btn right">&#10095;</button>
+  </div>
+</div>
+
 <footer class="footer-simple">
   <div class="footer-container">
     <!-- Logo -->
@@ -161,30 +199,109 @@
   </div>
 </footer>
 <script>
-    document.querySelectorAll('.activity-carousel').forEach((carousel, idx) => {
-        const track = carousel.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const indicators = carousel.querySelector('.carousel-indicators');
-        let currentIndex = 0;
-        let intervalId;
-        slides.forEach((_, i) => {
-            const dot = document.createElement('span');
-            dot.addEventListener('click', () => { currentIndex = i; update(); resetInterval(); });
-            indicators.append(dot);
-        });
-        const dots = Array.from(indicators.children);
-        const update = () => {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-        };
-        carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides.length) % slides.length; update(); resetInterval(); });
-        carousel.querySelector('[data-dir="next"]').addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides.length; update(); resetInterval(); });
-        const startInterval = () => { intervalId = setInterval(() => { currentIndex = (currentIndex + 1) % slides.length; update(); }, 3000); };
-        const resetInterval = () => { clearInterval(intervalId); startInterval(); };
-        carousel.addEventListener('mouseenter', () => clearInterval(intervalId));
-        carousel.addEventListener('mouseleave', () => startInterval());
-        setTimeout(() => { update(); startInterval(); }, idx * 800);
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.activity-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('carousel-dots');
+    carousel.appendChild(dotsContainer);
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+
+      dot.addEventListener('click', () => {
+        slides.forEach(slide => slide.style.display = 'none'); // Masquer toutes les images
+        slides[index].style.display = 'block'; // Afficher l'image sélectionnée
+        updateDots(index);
+      });
     });
+
+    const updateDots = (activeIndex) => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
+      });
+    };
+
+    let index = 0;
+    const update = () => {
+      slides.forEach(slide => slide.style.display = 'none'); // Masquer toutes les images
+      slides[index].style.display = 'block'; // Afficher uniquement l'image actuelle
+      updateDots(index);
+    };
+
+    carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    });
+
+    carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      update();
+    });
+
+    update(); // Initialiser l'affichage correct
+  });
+
+  // Gestion de la lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxTrack = lightbox.querySelector('.carousel-track');
+  const closeBtn = lightbox.querySelector('.close');
+  const leftBtn = lightbox.querySelector('.left');
+  const rightBtn = lightbox.querySelector('.right');
+  let currentIndex = 0;
+
+  document.querySelectorAll('.activity-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+
+    slides.forEach((slide, index) => {
+      slide.addEventListener('click', () => {
+        // Copier les images dans la lightbox
+        lightboxTrack.innerHTML = '';
+        slides.forEach((img, i) => {
+          const clone = img.cloneNode(true);
+          clone.style.display = i === index ? 'block' : 'none'; // Afficher uniquement l'image actuelle
+          lightboxTrack.appendChild(clone);
+        });
+
+        // Afficher la lightbox
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        updateLightbox();
+      });
+    });
+  });
+
+  const updateLightbox = () => {
+    Array.from(lightboxTrack.children).forEach((img, i) => {
+      img.style.display = i === currentIndex ? 'block' : 'none'; // Afficher uniquement l'image actuelle
+    });
+  };
+
+  leftBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + lightboxTrack.children.length) % lightboxTrack.children.length;
+    updateLightbox();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % lightboxTrack.children.length;
+    updateLightbox();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+});
 </script>
 <script src="js/menu.js"></script>
 </body>

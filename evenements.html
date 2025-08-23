@@ -48,6 +48,25 @@
     .carousel-btn.right {
       right: 10px;
     }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #717171;
+    }
   </style>
 </head>
 
@@ -103,7 +122,6 @@
                         <img src="img/Expo photo 4.jpg" class="carousel-img" alt="Octobre Rose 4">
                     </div>
                     <button class="carousel-btn right">&#10095;</button>
-                    
                 </div>
                 <h2 class="pole-title">Octobre Rose</h2>
                 <p>💗 La semaine de sensibilisation Octobre Rose s’est déroulée sur le campus avec la vente de rubans roses pour soutenir la lutte contre le cancer du sein 🎗️. Une mobilisation chaleureuse qui s’est clôturée en beauté par une soirée au Musée, le bar de l’école.
@@ -238,33 +256,125 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
     </div>
   </div>
 </footer>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <div class="lightbox-carousel">
+    <button class="carousel-btn left">&#10094;</button>
+    <div class="carousel-track"></div>
+    <button class="carousel-btn right">&#10095;</button>
+  </div>
+</div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('[data-carousel]').forEach(carousel => {
-      const track = carousel.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      let index = 0;
+document.addEventListener("DOMContentLoaded", function() {
+  // Gestion des carrousels
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('carousel-dots');
+    carousel.appendChild(dotsContainer);
 
-      const update = () => {
-        track.style.transform = `translateX(-${index * 100}%)`;
-      };
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
 
-      carousel.querySelector('.left').addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        update();
+      dot.addEventListener('click', () => {
+        slides.forEach(slide => slide.style.display = 'none');
+        slides[index].style.display = 'block';
+        updateDots(index);
       });
+    });
 
-      carousel.querySelector('.right').addEventListener('click', () => {
-        index = (index + 1) % slides.length;
-        update();
+    const updateDots = (activeIndex) => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === activeIndex);
       });
+    };
 
+    let index = 0;
+    const update = () => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      updateDots(index);
+    };
+
+    carousel.querySelector('.left').addEventListener('click', () => {
+      index = (index - 1 + slides.length) % slides.length;
       update();
     });
+
+    carousel.querySelector('.right').addEventListener('click', () => {
+      index = (index + 1) % slides.length;
+      update();
+    });
+
+    update();
   });
+
+  // Gestion de la lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxTrack = lightbox.querySelector('.carousel-track');
+  const closeBtn = lightbox.querySelector('.close');
+  const leftBtn = lightbox.querySelector('.left');
+  const rightBtn = lightbox.querySelector('.right');
+  let currentIndex = 0;
+
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+
+    slides.forEach((slide, index) => {
+      slide.addEventListener('click', () => {
+        // Copier les images dans la lightbox
+        lightboxTrack.innerHTML = '';
+        slides.forEach((img) => {
+          const clone = img.cloneNode(true);
+          lightboxTrack.appendChild(clone);
+        });
+
+        // Afficher la lightbox
+        currentIndex = index;
+        lightbox.style.display = 'flex';
+        updateLightbox();
+      });
+    });
+  });
+
+  const updateLightbox = () => {
+    const images = Array.from(lightboxTrack.children);
+    images.forEach((img, i) => {
+      img.style.display = i === currentIndex ? 'block' : 'none';
+    });
+  };
+
+  leftBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + lightboxTrack.children.length) % lightboxTrack.children.length;
+    updateLightbox();
+  });
+
+  rightBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % lightboxTrack.children.length;
+    updateLightbox();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+});
 </script>
+
+
 <script src="js/menu.js"></script>
 </body>
 </html>
-</html>
+
+
