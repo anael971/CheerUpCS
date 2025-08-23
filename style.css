@@ -1675,14 +1675,13 @@ header {
   justify-content: center;
   align-items: center;
 }
-/* marges latérales sur mobile*/
+/* Marges latérales sur mobile */
 @media (max-width: 768px) {
-  main, section, article {
+  body {
     padding-left: 15px;
     padding-right: 15px;
   }
 }
-
 /* Lightbox */
 .lightbox {
   display: none; /* caché par défaut */
