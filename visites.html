@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evènements spéciaux - Cheer Up</title>
+    <title>Activités Collectives - Cheer Up</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .activity-section { display: flex; flex-direction: row; background: #f7f7f7; margin-bottom: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); overflow: hidden; }
@@ -23,15 +23,18 @@
             cursor: pointer;
             z-index: 2;
         }
-        .carousel-btn:hover { background: #d32f2f; color: #fff; opacity: 1; }
-        .carousel-btn.left { left: 10px; }
-        .carousel-btn.right { right: 10px; }
+        .carousel-btn.left {
+            left: 10px;
+        }
+        .carousel-btn.right {
+            right: 10px;
+        }
         .carousel-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
         .carousel-indicators span { width: 10px; height: 10px; border-radius: 50%; background: #ccc; margin: 0 4px; cursor: pointer; transition: background 0.3s; }
         .carousel-indicators span.active { background: #333; }
         @media (max-width: 900px) { .activity-section { flex-direction: column; } .activity-carousel { width: 100%; min-width: unset; } }
 
-        /* Styles de la lightbox */
+        /* Lightbox styles */
         .lightbox {
             display: none;
             position: fixed;
@@ -58,35 +61,39 @@
             cursor: pointer;
         }
 
-        /* Styles pour les points du carrousel */
+        /* Dots styles */
         .carousel-dots {
-            text-align: center;
-            padding: 10px 0;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
         }
         .dot {
-            display: inline-block;
             width: 10px;
             height: 10px;
-            margin: 0 4px;
-            background: #ccc;
             border-radius: 50%;
+            background: #ccc;
+            margin: 0 4px;
             cursor: pointer;
             transition: background 0.3s;
         }
-        .dot.active {
-            background: #333;
-        }
+        .dot.active { background: #333; }
     </style>
 </head>
 <body>
 <header>
   <div class="logo-container">
-    <div class="logo">
-      <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-    </div>
-    <div class="logo-text">Antenne Centrale Supélec</div>
-    <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
-  </div>
+  <a href="index.html" class="logo">
+    <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+  </a>
+  <a href="index.html" class="logo-text">Antenne Centrale Supélec</a>
+  
+  <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+</div>
+
+
+  <!-- Navigation -->
   <nav class="nav-links">
     <ul>
       <li>
@@ -104,36 +111,37 @@
       </li>
       <li><a href="equipe.html">Notre équipe</a></li>
       <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+    <!--  <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>--> 
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
-<main class="container my-5" style="margin-top: 20px;">
-    
+<main class="container my-5">
+    <section class="text-center mb-5">
+        <h1>Activités Collectives</h1>
+        <p>Découvrez nos activités collectives, pensées pour créer des souvenirs et renforcer les liens entre les jeunes accompagnés.</p>
+    </section>
 
     <!-- Activité : PSG VS Toulouse -->
     <section class="activity-section">
         <div class="activity-desc">
-            <h2>Visites à L'hôpital</h2>
+            <h2>PSG VS Toulouse</h2>
             <p>Cheer Up est une association engagée auprès des jeunes atteints de cancer, hospitalisés à l'Institut Gustave Roussy. Ses bénévoles rendent visite aux patients pour leur offrir écoute, soutien et moments de partage. À travers des échanges bienveillants, Cheer Up aide les jeunes à retrouver confiance et motivation pendant leur parcours de soins. L’objectif est de redonner espoir et sourire à ceux qui traversent une période difficile.</p>
-        </div>
+                 </div>
         <div class="activity-carousel" data-activity="PSG_Toulouse">
             <button class="carousel-btn left" data-dir="prev">&#8592;</button>
             <div class="carousel-track">
-                <img src="img/visite1.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite1.jpeg" class="carousel-img crop-top" alt="">
                 <img src="img/visite2.jpeg" class="carousel-img crop-center" alt="">
-                <img src="img/visite3.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite3.jpeg" class="carousel-img crop-top" alt="">
                 <img src="img/visite4.jpeg" class="carousel-img crop-center" alt="">
-                <img src="img/visite5.jpeg" class="carousel-img crop-center" alt="">
+                <img src="img/visite5.jpeg" class="carousel-img crop-top" alt="">
                 <img src="img/Visite.jpeg" class="carousel-img crop-center" alt="">
             </div>
             <button class="carousel-btn right" data-dir="next">&#8594;</button>
             <div class="carousel-indicators"></div>
         </div>
     </section>
-
-
-
 </main>
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
@@ -172,32 +180,55 @@
   </div>
 </footer>
 <script>
-document.querySelectorAll('.activity-carousel').forEach(carousel => {
-  const track = carousel.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
-  let currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('.activity-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prevButton = carousel.querySelector('[data-dir="prev"]');
+    const nextButton = carousel.querySelector('[data-dir="next"]');
+    const dotsContainer = document.createElement('div');
+    dotsContainer.classList.add('carousel-dots');
+    carousel.appendChild(dotsContainer);
 
-  const update = () => {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === currentIndex ? 'block' : 'none'; // Afficher uniquement l'image actuelle
+    slides.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+
+      dot.addEventListener('click', () => {
+        updateCarousel(index);
+      });
     });
-  };
 
-  carousel.querySelector('[data-dir="prev"]').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    update();
+    let currentIndex = 0;
+
+    const updateCarousel = (index) => {
+      currentIndex = index;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      updateDots();
+    };
+
+    const updateDots = () => {
+      dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(currentIndex);
+    });
+
+    updateCarousel(currentIndex);
   });
 
-  carousel.querySelector('[data-dir="next"]').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    update();
-  });
-
-  update();
-});
-
-// Gestion de la lightbox
-document.addEventListener("DOMContentLoaded", function() {
+  // Lightbox functionality
   const lightbox = document.getElementById('lightbox');
   const lightboxTrack = lightbox.querySelector('.carousel-track');
   const closeBtn = lightbox.querySelector('.close');
@@ -211,15 +242,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     slides.forEach((slide, index) => {
       slide.addEventListener('click', () => {
-        // Copier les images dans la lightbox
         lightboxTrack.innerHTML = '';
-        slides.forEach((img, i) => {
+        slides.forEach(img => {
           const clone = img.cloneNode(true);
-          clone.style.display = i === index ? 'block' : 'none'; // Afficher uniquement l'image actuelle
           lightboxTrack.appendChild(clone);
         });
-
-        // Afficher la lightbox
         currentIndex = index;
         lightbox.style.display = 'flex';
         updateLightbox();
@@ -229,38 +256,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const updateLightbox = () => {
     Array.from(lightboxTrack.children).forEach((img, i) => {
-      img.style.display = i === currentIndex ? 'block' : 'none'; // Afficher uniquement l'image actuelle
+      img.style.display = i === currentIndex ? 'block' : 'none';
     });
   };
 
-  leftBtn.addEventListener('click', () => {
+  leftBtn?.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + lightboxTrack.children.length) % lightboxTrack.children.length;
     updateLightbox();
   });
 
-  rightBtn.addEventListener('click', () => {
+  rightBtn?.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % lightboxTrack.children.length;
     updateLightbox();
   });
 
-  closeBtn.addEventListener('click', () => {
+  closeBtn?.addEventListener('click', () => {
     lightbox.style.display = 'none';
   });
 
-  lightbox.addEventListener('click', (e) => {
+  lightbox?.addEventListener('click', (e) => {
     if (e.target === lightbox) {
       lightbox.style.display = 'none';
     }
   });
 });
 </script>
+<script src="js/menu.js"></script>
+</body>
+</html>
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.activity-carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
-    const prevButton = carousel.querySelector('.carousel-btn.left');
-    const nextButton = carousel.querySelector('.carousel-btn.right');
+    const prevButton = carousel.querySelector('[data-dir="prev"]');
+    const nextButton = carousel.querySelector('[data-dir="next"]');
     const dotsContainer = document.createElement('div');
     dotsContainer.classList.add('carousel-dots');
     carousel.appendChild(dotsContainer);

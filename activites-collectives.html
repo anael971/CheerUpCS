@@ -84,12 +84,16 @@
 <body>
 <header>
   <div class="logo-container">
-    <div class="logo">
-      <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
-    </div>
-    <div class="logo-text">Antenne Centrale Supélec</div>
-    <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
-  </div>
+  <a href="index.html" class="logo">
+    <img src="img/Logo_CU.png" alt="Cheer Up ! Logo">
+  </a>
+  <a href="index.html" class="logo-text">Antenne Centrale Supélec</a>
+  
+  <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+</div>
+
+
+  <!-- Navigation -->
   <nav class="nav-links">
     <ul>
       <li>
@@ -107,6 +111,7 @@
       </li>
       <li><a href="equipe.html">Notre équipe</a></li>
       <li><a href="nous-soutenir.html">Nous Soutenir</a></li>
+    <!--  <li><a href="https://cheer-up.fr">Fédération Cheer Up !</a></li>--> 
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -182,7 +187,20 @@
             <button class="carousel-btn right" data-dir="next">&#8594;</button>
         </div>
     </section>
-
+    <!-- Activité : jeune ballet européen -->
+    <section class="activity-section">
+        <div class="activity-desc">
+            <h2>Théâtre</h2>
+            <p>Le 9 mars, Axel et Ted, accompagnés de Kacper, Martyna, Ilya et Basile, ont vécu une soirée mémorable en assistant à la victoire du PSG handball 34-28 🏆. Entre actions spectaculaires, ambiance enflammée et frissons dans les tribunes, chacun a vibré aux couleurs parisiennes. Et pour couronner le tout, ils sont repartis avec un superbe cadeau : l’écharpe officielle du club 🔴🔵, souvenir parfait d’un moment unique !</p>
+        </div>
+        <div class="activity-carousel" data-activity="PSG_Nantes">
+            <button class="carousel-btn left" data-dir="prev">&#8592;</button>
+            <div class="carousel-track">
+                <img src="img/jeune ballet européen.png" class="carousel-img crop-top" alt="">
+            </div>
+            <button class="carousel-btn right" data-dir="next">&#8594;</button>
+        </div>
+    </section>
     <!-- Activité : PSG vs Lyon -->
     <section class="activity-section">
         <div class="activity-desc">
