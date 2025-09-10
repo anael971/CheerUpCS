@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://cheerup-cs.fr/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/activites-collectives.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/equipe.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/evenement1.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/evenements.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/evenements-speciaux.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/nous-soutenir.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/projets.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cheerup-cs.fr/visites.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

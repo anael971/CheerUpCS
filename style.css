@@ -1807,3 +1807,18 @@ header {
   object-fit: contain;
   display: block;
 }
+#image-carousel .carousel-slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000; /* fond noir pour combler autour de l’image */
+  aspect-ratio: 16/9; /* impose un format 16:9 responsive */
+}
+
+#image-carousel .carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* garde l’image entière sans déformation */
+}
