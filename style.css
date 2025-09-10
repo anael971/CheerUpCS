@@ -1842,3 +1842,13 @@ header {
   width: auto;   /* au lieu de width: 140px */
   height: auto;  /* enlève la hauteur figée */
 }
+
+/* === Correction carousel accueil === */
+#image-carousel .carousel-slide img,
+.carousel-img {
+  width: 100%;
+  height: 100vh;           /* prend toute la hauteur de la fenêtre */
+  object-fit: cover;       /* remplit l'écran en zoomant si nécessaire */
+  object-position: center; /* centre l'image */
+  border-radius: 0 !important; /* supprime les coins arrondis */
+}
