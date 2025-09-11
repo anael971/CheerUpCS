@@ -131,7 +131,7 @@
                 <h2 class="pole-title">Octobre Rose</h2>
                 <p>💗 La semaine de sensibilisation Octobre Rose s’est déroulée sur le campus avec la vente de rubans roses pour soutenir la lutte contre le cancer du sein 🎗️. Une mobilisation chaleureuse qui s’est clôturée en beauté par une soirée au Musée, le bar de l’école.
 Au menu : les incontournables monaco, crêpes et roulés de saucisse 🌭🥞, pour se régaler tout en contribuant à une belle cause ✨. Merci à toutes celles et ceux venus en rose 💕 : vos gestes solidaires permettront de soutenir les actions de Cheer Up !</p>
-                <p class="event-date">15 Novembre 2025</p>
+           
             </div>
 
             <!-- Movember -->
@@ -148,7 +148,7 @@ Au menu : les incontournables monaco, crêpes et roulés de saucisse 🌭🥞, p
                 </div>
                 <h2 class="pole-title">Movember</h2>
                 <p>Pour clôturer Movember, le traditionnel Concours de Moustaches a réuni de nombreux participants autour de trois catégories originales : la plus créative 🖌️, la plus fournie 🌳 et la meilleure évolution 📈. Les votes pour élire la plus belle moustache restent ouverts jusqu’à ce soir 🥸. Rendez-vous demain au Musée pour la remise des prix et fêter ensemble la fin de cette belle édition solidaire 💙❤️</p>
-                <p class="event-date">22 Novembre 2025</p>
+
             </div>
 
             <!-- Cheerity -->
@@ -175,7 +175,7 @@ Au menu : les incontournables monaco, crêpes et roulés de saucisse 🌭🥞, p
                 <h2 class="pole-title">Cheerity</h2>
                 <p>Le Gala Cheerity a réuni étudiant·e·s, entreprises et intervenant·e·s autour d’un même objectif : soutenir la lutte contre le cancer ❤️💙. Entre repas raffiné, témoignages émouvants et animations assurées par CS_Jazz et MagieCS 🎶🪄, la soirée a mêlé solidarité et convivialité.
 Un grand merci aux partenaires et à tous les participants : les fonds récoltés financeront la recherche et des projets pour les jeunes de l’hôpital Gustave Roussy 🤩. Mention spéciale à Chafia et Lucile, dont les témoignages bouleversants ont donné tout son sens à l’événement 💙</p>
-                <p class="event-date">5 Décembre 2025</p>
+                
             </div>
 
             <!-- Saint Valentin -->
@@ -193,7 +193,7 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
                 </div>
                 <h2 class="pole-title">Saint Valentin</h2>
                 <p>💐 À l’occasion de la Saint-Valentin, les étudiants ont pu déclarer leur flamme… ou simplement témoigner leur amitié ❤️. Il était possible d’offrir des fleurs à son ou sa crush, livrées directement à domicile, accompagnées d’un petit mot personnalisé ✍️. Et pour rendre le moment encore plus magique, la fanfare de Centrale surprenait les heureux élus avec une musique romantique 🎶. Une initiative pleine de tendresse et de sourires qui a fait vibrer le campus.</p>
-                <p class="event-date">10 Janvier 2026</p>
+                
             </div>
 
             <!-- Journées contre le cancer -->
@@ -218,7 +218,7 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
                 </div>
                 <h2 class="pole-title">Journées Contre le Cancer</h2>
                 <p>💛 Les Journées contre le Cancer (JCC) ont rassemblé le campus autour d’une semaine de sensibilisation et de solidarité ✊. Entre la course contre le cancer 🏃‍♂️, le stand-up de Merlan Sali 🎤, la dégustation de vin avec Magnum 🍷, la conférence de l’entreprise X sur l’IA en médecine 🤖⚕️ et un grand barbecue festif 🔥🍔, l’événement a mêlé sport, culture et convivialité pour porter haut le message de la lutte contre le cancer.</p>
-                <p class="event-date">20 Février 2026</p>
+               
             </div>
 
             <!-- Thumbs UP -->
@@ -240,7 +240,7 @@ Un grand merci aux partenaires et à tous les participants : les fonds récolté
                 </div>
                 <h2 class="pole-title">Thumbs UP</h2>
                 <p>💛 L’événement Thumbs UP a réuni les étudiants autour d’une aventure solidaire unique : une course en stop jusqu’à Longeville-sur-Mer 🚗💨 où chaque duo représentait un jeune hospitalisé. À l’arrivée, le classement permettait aux jeunes de choisir un cadeau 🎁, offrant sourires et émotions. Grâce à l’énergie et la solidarité des 50 participants, cette édition restera un moment inoubliable ✊.</p>
-                <p class="event-date">15 Mars 2026</p>
+                
             </div>
         </div>
     </section>
@@ -338,60 +338,3 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="js/menu.js"></script>
 </body>
 </html>
-
-  document.querySelectorAll('[data-carousel]').forEach(carousel => {
-    const track = carousel.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-
-    slides.forEach((slide, index) => {
-      slide.addEventListener('click', () => {
-        // Copier les images dans la lightbox
-        lightboxTrack.innerHTML = '';
-        slides.forEach((img) => {
-          const clone = img.cloneNode(true);
-          lightboxTrack.appendChild(clone);
-        });
-
-        // Afficher la lightbox
-        currentIndex = index;
-        lightbox.style.display = 'flex';
-        updateLightbox();
-      });
-    });
-  });
-
-  const updateLightbox = () => {
-    const images = Array.from(lightboxTrack.children);
-    images.forEach((img, i) => {
-      img.style.display = i === currentIndex ? 'block' : 'none';
-    });
-  };
-
-  leftBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + lightboxTrack.children.length) % lightboxTrack.children.length;
-    updateLightbox();
-  });
-
-  rightBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % lightboxTrack.children.length;
-    updateLightbox();
-  });
-
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
-    }
-  });
-});
-</script>
-
-
-<script src="js/menu.js"></script>
-</body>
-</html>
-
-

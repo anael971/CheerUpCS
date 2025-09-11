@@ -1398,7 +1398,6 @@ footer {
   min-width: 100%;
   object-fit: cover;
   height: 250px;
-  border-radius: 10px;
 }
 
 .carousel-btn {
@@ -1849,8 +1848,7 @@ header {
   width: 100%;
   height: 100vh;           /* prend toute la hauteur de la fenêtre */
   object-fit: cover;       /* remplit l'écran en zoomant si nécessaire */
-  object-position: center; /* centre l'image */
-  border-radius: 0 !important; /* supprime les coins arrondis */
+  object-position: center; /* centre l'image */ /* supprime les coins arrondis */
 }
 /* === Sticky footer global === */
 html, body {
