@@ -1876,3 +1876,67 @@ footer {
     max-height: 70vh;
   }
 }
+/* Correction : le menu reste ouvert même si on survole la zone du dropdown */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Supprime les "trous" entre le bouton et le menu déroulant */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  top: 100%;   /* colle juste sous le bouton */
+  left: 0;
+  margin-top: 0;   /* supprime tout écart vertical */
+  padding-top: 0;
+}
+/* En-tête : supprime le soulignement du titre du site */
+header h1 a {
+  text-decoration: none;
+  color: inherit; /* garde la même couleur que le texte */
+}
+
+header h1 a:hover {
+  text-decoration: none; /* même au survol */
+}
+/* ==== Améliorations responsive mobile ==== */
+@media (max-width: 768px) {
+  /* Réduire marges/paddings globaux */
+  .container, .activity-section, .contact-section, .pole-card, .actions-overview {
+    padding: 12px !important;
+    margin: 12px auto !important;
+    width: 95% !important; /* prend presque toute la largeur */
+  }
+
+  /* Réduire la taille des paddings dans les descriptions */
+  .activity-desc {
+    padding: 16px !important;
+  }
+
+  /* Adapter les images de carrousel */
+  .carousel-img, .activity-carousel img {
+    height: auto !important;
+    max-height: 220px;
+    object-fit: cover;
+  }
+
+  /* Centrer et élargir le formulaire de contact */
+  .contact-section {
+    max-width: 95% !important;
+    border-radius: 8px;
+    padding: 20px !important;
+  }
+
+  /* Titres un peu plus petits pour éviter qu'ils débordent */
+  h1, h2 {
+    font-size: 1.6em !important;
+  }
+
+  h3, h4 {
+    font-size: 1.2em !important;
+  }
+}
