@@ -1940,3 +1940,17 @@ header h1 a:hover {
     font-size: 1.2em !important;
   }
 }
+@media (max-width: 768px) {
+  body {
+    display: block; /* désactive le flex sur mobile */
+    min-height: auto;
+  }
+
+  main {
+    flex: unset;
+  }
+
+  footer {
+    margin-top: 40px; /* un peu d’espace sous le contenu */
+  }
+}
